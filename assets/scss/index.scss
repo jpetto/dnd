@@ -1,0 +1,272 @@
+@mixin labelText() {
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 6px;
+    text-transform: uppercase;
+}
+
+@mixin goldCircleText() {
+    background: rgba(251,197,10, 0.8);
+    border-radius: 50%;
+    border: 1px dotted rgba(0, 0, 0, 0.4);
+    display: block;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+// hide number input up/down arrows
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.main-container {
+    margin: 40px auto;
+    max-width: 600px;
+    min-width: 320px;
+}
+
+.mine-textbox {
+    width: 200px;
+    height: 200px;
+}
+
+.ac-prof-init-wrapper {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100px;
+    margin-bottom: 40px;
+
+    .stat {
+        text-align: center;
+    }
+}
+
+.stat-with-icon {
+    position: relative;
+
+    .stat-icon {
+        position: absolute;
+        height: 80px;
+        top: 0px;
+        width: 100%;
+        z-index: -1;
+
+        svg {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    .stat-label {
+        bottom: 0;
+        min-width: 40px;
+        position: absolute;
+        width: 100%;
+
+        .text-wrapper {
+            @include labelText();
+        }
+    }
+
+    .stat-number {
+        font-size: 20px;
+        left: 50%;
+        margin: -30px 0 0 -20px;
+        position: absolute;
+        top: 50%;
+
+        .text-wrapper {
+            @include goldCircleText();
+            height: 40px;
+            line-height: 36px;
+            //padding: 1px 6px;
+            width: 40px;
+        }
+    }
+}
+
+.ability-skills-wrapper {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 130px 1fr;
+}
+
+.skills-list {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-list-item {
+    background: #f2f2f2;
+    padding: 6px;
+    text-align: center;
+
+    .label {
+        display: block;
+        margin-bottom: 4px;
+
+        .text-wrapper {
+            @include labelText();
+        }
+    }
+
+    .value {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+
+        &.proficient .text-wrapper{
+            @include goldCircleText();
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
+
+.ability-score-list {
+    border: 2px dotted #000;
+    border-radius: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ability-score-list-item {
+    border-bottom: 2px dotted #000;
+    height: 90px;
+    position: relative;
+    text-align: center;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    .label {
+        display: block;
+
+        .text-wrapper {
+            @include labelText();
+        }
+    }
+
+    .value {
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 28px;
+        margin-top: 2px;
+        width: 100%;
+    }
+
+    .modifier {
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+
+        .text-wrapper {
+            @include goldCircleText();
+            font-size: 12px;
+            height: 24px;
+            //line-height: 18px;
+            width: 24px;
+        }
+    }
+}
+
+/*
+.ability-scores {
+    margin-bottom: 40px;
+}
+
+.ability-score-list {
+    border: 2px dotted #000;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ability-score-list-item {
+    border: 2px dotted #000;
+    border-left: none;
+    height: 80px;
+    position: relative;
+    text-align: center;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        border-top: none;
+    }
+
+    &:nth-child(3) {
+        border-right: none;
+        border-top: none;
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+        border-bottom: none;
+        border-top: none;
+    }
+
+    &:nth-child(6) {
+        border: none;
+    }
+
+    .label {
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+
+        .text-wrapper {
+            @include labelText();
+        }
+    }
+
+    .value {
+        font-size: 26px;
+        font-weight: bold;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+    }
+
+    .modifier {
+        .text-wrapper {
+            @include goldCircleText();
+            font-size: 12px;
+            height: 24px;
+            line-height: 18px;
+            margin-top: 2px;
+            width: 24px;
+        }
+    }
+}
+*/

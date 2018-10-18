@@ -24,10 +24,10 @@ ul {
 
 .page1 {
     display: grid;
-    grid-template-rows: [row1] 26vh [row2] 1fr [row3] 100vw;
+    grid-template-rows: [row1] 40vw [row2] auto [row3] auto [row3] auto;
     grid-template-columns: auto;
-    height: 100vh;
-    max-height: 100vh;
+    //height: 100vh;
+    //max-height: 100vh;
     width: 100vw;
 }
 
@@ -59,39 +59,53 @@ ul {
     .primary-stat {
         flex: 0 0 calc(20vw - 1rem);
         height: calc(20vw - 1rem);
+        margin: 0.5rem 0;
     }
 }
 
 .primary-stat {
     border-radius: 50%;
-    //height: 20vw;
-    overflow: hidden;
+    position: relative;
     text-align: center;
-    //width: 20vw;
 
     .descriptor {
         display: block;
-        height: 6vw;
         font-size: 1rem;
-        padding-top: 7px;
+        height: 25%;
+        justify-content: flex-end;
     }
 
     .value {
         display: block;
         font-size: 2.8rem;
-        height: 8vw;
+        height: 50%;
+        justify-content: center;
     }
 
     .modifier {
         display: block;
         font-size: 1.2rem;
-        height: 6vw;
-        padding-bottom: 7px;
+        height: 25%;
+        justify-content: flex-start;
+    }
+
+    .descriptor,
+    .value,
+    .modifier {
+        display: flex;
+        flex-direction: column;
     }
 
     .extra-modifier {
         // hide for now!
-        display: none;
+        background: #00f;
+        border-radius: 50%;
+        bottom: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 4px;
+        position: absolute;
+        right: 0;
     }
 }
 
@@ -99,14 +113,13 @@ ul {
     background: salmon;
 }
 
-.stats-list {
-    display: grid;
-    grid-template: repeat(2, auto) / repeat(2, auto);
-}
-
 .stat {
     background: mistyrose;
     height: 20vw;
+}
+
+.passive-perception {
+    grid-row: row2;
 }
 
 // ***********************************
@@ -117,7 +130,7 @@ ul {
     align-items: center;
     background: khaki;
     display: flex;
-    grid-row: row2;
+    grid-row: row3;
 }
 
 .attacks-table {
@@ -156,7 +169,7 @@ ul {
 
 .skills {
     background: grey;
-    grid-row: row3;
+    grid-row: row4;
     overflow: hidden;
 }
 

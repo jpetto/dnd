@@ -1,206 +1,380 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/dnd.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
-    <main>
-        <article class="page page1">
-            <div class="abilities-stats-wrapper">
-                <section class="abilities">
-                    <ul class="abilities-list primary-stats-list">
-                        <li class="ability primary-stat">
-                            <div class="primary-stat-wrapper">
-                                <span class="descriptor">STR</span>
-                                <span class="value">10</span>
-                                <span class="modifier">-</span>
-                                <span class="extra-modifier">+2</span>
-                            </div>
-                        </li>
-                        <li class="ability primary-stat">
-                            <span class="descriptor">DEX</span>
-                            <span class="value">18</span>
-                            <span class="modifier">+4</span>
-                            <span class="extra-modifier">+6</span>
-                        </li>
-                        <li class="ability primary-stat">
-                            <span class="descriptor">CON</span>
-                            <span class="value">8</span>
-                            <span class="modifier">-1</span>
-                        </li>
-                        <li class="ability primary-stat">
-                            <span class="descriptor">INT</span>
-                            <span class="value">12</span>
-                            <span class="modifier">+1</span>
-                        </li>
-                        <li class="ability primary-stat">
-                            <span class="descriptor">WIS</span>
-                            <span class="value">16</span>
-                            <span class="modifier">+3</span>
-                        </li>
-                        <li class="ability primary-stat">
-                            <span class="descriptor">CHA</span>
-                            <span class="value">13</span>
-                            <span class="modifier">+1</span>
-                        </li>
-                    </ul>
-                </section>
-                <section class="stats">
-                    <ul class="stats-list primary-stats-list">
-                        <li class="stat primary-stat">
-                            <span class="descriptor">HP</span>
-                            <span class="value">29</span>
-                        </li>
-                        <li class="stat primary-stat">
-                            <span class="descriptor">AC</span>
-                            <span class="value">16</span>
-                        </li>
-                        <li class="stat primary-stat">
-                            <span class="descriptor">Init.</span>
-                            <span class="value">+4</span>
-                            <span class="modifier">ADV</span>
-                        </li>
-                        <li class="stat primary-stat">
-                            <span class="descriptor">Prof.</span>
-                            <span class="value">+3</span>
-                        </li>
-                    </ul>
-                </section>
-            </div> <!-- /.abilities-stats-wrapper -->
+  <main class="main-container">
+    <section class="grid ac-prof-init-wrapper">
+      <div class="stat stat-with-icon stat-ac">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="stat-label">
+          <span class="text-wrapper">AC</span>
+        </div>
+        <div class="stat-number">
+          <span class="text-wrapper">17</span>
+        </div>
+      </div>
+      <div class="stat stat-with-icon stat-proficiency">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div class="stat-label">
+          <span class="text-wrapper">Proficiency</span>
+        </div>
+        <div class="stat-number">
+          <span class="text-wrapper">+3</span>
+        </div>
+      </div>
+      <div class="stat stat-with-icon stat-initiative">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+        </div>
+        <div class="stat-label">
+          <span class="text-wrapper">Initiative</span>
+        </div>
+        <div class="stat-number">
+          <span class="text-wrapper">+4</span>
+        </div>
+      </div>
+    </section>
 
-            <section class="attacks">
-                <table class="attacks-table">
-                    <tr class="attacks-table-header">
-                        <th class="attack-name">Name</th>
-                        <th class="attack-bonus">Bonus</th>
-                        <th class="attack-damage-type">Damage/Type</th>
-                    </tr>
-                    <tr>
-                        <td class="attack-name">🏹 L. Bow</td>
-                        <td class="attack-bonus">+9</td>
-                        <td class="attack-damage-type">1d8+4 / piercing</td>
-                    </tr>
-                    <tr>
-                        <td class="attack-name">🗡 S. Sword</td>
-                        <td class="attack-bonus">+7</td>
-                        <td class="attack-damage-type">1d6+4 / piercing</td>
-                    </tr>
-                    <tr>
-                        <td class="attack-name">🗡 S. Sword</td>
-                        <td class="attack-bonus">+7</td>
-                        <td class="attack-damage-type">1d6+4 / piercing</td>
-                    </tr>
-                </table>
-            </section>
+    <section class="ability-skills-wrapper">
+      <section class="ability-scores">
+        <ul class="ability-score-list">
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Strength</span>
+            </span>
+            <span class="value">10</span>
+            <span class="modifier">
+              <span class="text-wrapper">0</span>
+            </span>
+          </li>
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Dexterity</span>
+            </span>
+            <span class="value">18</span>
+            <span class="modifier">
+              <span class="text-wrapper">+4</span>
+            </span>
+          </li>
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Constitution</span>
+            </span>
+            <span class="value">8</span>
+            <span class="modifier">
+              <span class="text-wrapper">-1</span>
+            </span>
+          </li>
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Intelligence</span>
+            </span>
+            <span class="value">12</span>
+            <span class="modifier">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Wisdom</span>
+            </span>
+            <span class="value">16</span>
+            <span class="modifier">
+              <span class="text-wrapper">+3</span>
+            </span>
+          </li>
+          <li class="ability-score-list-item">
+            <span class="label">
+              <span class="text-wrapper">Charisma</span>
+            </span>
+            <span class="value">13</span>
+            <span class="modifier">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+        </ul>
+      </section> <!--/.ability-scores-->
 
-            <section class="skills">
-                <ul class="skills-list">
-                    <li class="skill">
-                        <div class="skill-wrapper">
-                            <span class="descriptor">Acrobatics</span>
-                            <span class="value">+4</span>
-                            <span class="ability-ref">Dex</span>
-                        </div>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Animal Handling</span>
-                        <span class="value">+3</span>
-                        <span class="ability-ref">Wis</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Arcana</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Athletics</span>
-                        <span class="value">-</span>
-                        <span class="ability-ref">Str</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Deception</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Cha</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">History</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                    <li class="skill proficient">
-                        <span class="descriptor">Insight</span>
-                        <span class="value">+6</span>
-                        <span class="ability-ref">Wis</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Intimidation</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Cha</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Investigation</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Medicine</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Wis</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Nature</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                    <li class="skill proficient">
-                        <span class="descriptor">Perception</span>
-                        <span class="value">+6</span>
-                        <span class="ability-ref">Wis</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Performance</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Cha</span>
-                    </li>
-                    <li class="skill proficient">
-                        <span class="descriptor">Persuasion</span>
-                        <span class="value">+4</span>
-                        <span class="ability-ref">Cha</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Religion</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Sleight of Hand</span>
-                        <span class="value">+4</span>
-                        <span class="ability-ref">Dex</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Stealth</span>
-                        <span class="value">+7</span>
-                        <span class="ability-ref">Dex</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Survival</span>
-                        <span class="value">+3</span>
-                        <span class="ability-ref">Wis</span>
-                    </li>
-                    <li class="skill">
-                        <span class="descriptor">Investigation</span>
-                        <span class="value">+1</span>
-                        <span class="ability-ref">Int</span>
-                    </li>
-                </ul>
-            </section>
-        </article>
-    </main>
+      <section class="skills">
+        <ul class="skills-list">
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Acrobatics</span>
+            </span>
+            <span class="value proficient">
+              <span class="text-wrapper">+4</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Animal Handling</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+3</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Arcana</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Athletics</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+0</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Deception</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">History</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Insight</span>
+            </span>
+            <span class="value proficient">
+              <span class="text-wrapper">+6</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Intimidation</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Investigation</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Medicine</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+3</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Nature</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Perception</span>
+            </span>
+            <span class="value proficient">
+              <span class="text-wrapper">+6</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Performance</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Persuasion</span>
+            </span>
+            <span class="value proficient">
+              <span class="text-wrapper">+4</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Religion</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+1</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Sleight of Hand</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+4</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Stealth</span>
+            </span>
+            <span class="value proficient">
+              <span class="text-wrapper">+7</span>
+            </span>
+          </li>
+          <li class="skills-list-item">
+            <span class="label">
+              <span class="text-wrapper">Survival</span>
+            </span>
+            <span class="value">
+              <span class="text-wrapper">+3</span>
+            </span>
+          </li>
+        </ul>
+      </section> <!--/.skills-->
+    </section> <!--/.ability-skills-wrapper-->
+
+      <form action="" id="session-form">
+        <div class="row">
+          <div class="col-md">
+            <input type="number" name="hp" id="hp" value="35" class="mine-textbox" />
+          </div>
+          <div class="col-sm">
+            <button type="button" name="hp-up" id="hp-up">UP</button>
+            <button type="button" name="hp-dn" id="hp-dn">DN</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <input type="number" name="hit-dice" id="hit-dice" value="6" class="mine-textbox" />
+          </div>
+          <div class="col-sm">
+            <button type="button" id="hit-dice-up">UP</button>
+            <button type="button" id="hit-dice-dn">DN</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <span class="label">Death Saves</span>
+            <table>
+              <tr>
+                <td>&nbsp;</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Success</td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-success" />
+                </td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-success" />
+                </td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-success" />
+                </td>
+              </tr>
+              <tr>
+                <td>Failure</td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-failure" />
+                </td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-failure" />
+                </td>
+                <td>
+                  <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-failure" />
+                </td>
+              </tr>
+            </table>
+
+            <button type="button" id="death-saves-reset">Clear</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <span class="label">Spell Save DC (8 + Wisdom mod + Proficiency)</span>
+            <span class="value">14</span>
+
+            <span class="label">Spell Attack Bonus (Wisdom mod + Proficiency)</span>
+            <span class="value">+6</span>
+
+            <span class="label">Spell Slots</span>
+
+            <table>
+              <tr>
+                <td>Level 1</td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
+                </td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
+                </td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
+                </td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
+                </td>
+              </tr>
+              <tr>
+                <td>Level 2</td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
+                </td>
+                <td>
+                  <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </form>
+
+  </main>
 </body>
+
+<script src="index.js"></script>
+
 </html>
