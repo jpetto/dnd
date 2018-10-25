@@ -1,3 +1,7 @@
+// https://www.colourlovers.com/palette/4605179/another_babys_room
+
+$colorButton: #9A93E2;
+
 @mixin labelText() {
     background: #000;
     color: #fff;
@@ -7,18 +11,29 @@
     text-transform: uppercase;
 }
 
-@mixin goldCircleText() {
-    background: rgba(251,197,10, 0.8);
+@mixin circleTextBase() {
     border-radius: 50%;
     border: 1px dotted rgba(0, 0, 0, 0.4);
-    display: block;
+    display: inline-block;
     font-weight: bold;
     margin: 0 auto;
+}
+
+@mixin circleText() {
+    @include circleTextBase();
+    background: rgba(242, 169, 215, 0.9);
+}
+
+@mixin circleTextAlt() {
+    @include circleTextBase();
+    background: rgba(0, 0, 255, 0.3);
+    background: rgba(169, 216, 242, 0.8);
 }
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
+    font-size: 14px;
 }
 
 *, *:before, *:after {
@@ -36,23 +51,140 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+input, textarea {
+    padding: 2px 4px;
+    width: 100%;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.label {
+    @include labelText();
+
+    .text-wrapper {
+        padding: 1px 0;
+    }
+}
+
+.h2 {
+    border-bottom: 1px dotted #000;
+    font-size: 2rem;
+
+    .label {
+        background: #A9F2E4;
+        color: #000;
+        font-size: 16px;
+
+    }
+}
+
+.h4 {
+    font-size: 1.5rem;
+}
+
+dt {
+    clear: left;
+    float: left;
+    margin-right: 6px;
+
+    &:after {
+        content: ':';
+        display: inline;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    background: $colorButton;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
 .main-container {
     margin: 40px auto;
     max-width: 600px;
     min-width: 320px;
+    padding: 0 20px;
 }
 
-.mine-textbox {
-    width: 200px;
-    height: 200px;
+.toggle-content {
+    background: #f2f2f2;
+    margin: 4px 0 10px;
+    padding: 16px;
 }
 
-.ac-prof-init-wrapper {
+.attacks-table {
+    & thead tr,
+    & tbody tr {
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: 2fr 1fr 2fr;
+    }
+}
+
+.widgets-wrapper {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    .widget-number-box {
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template-columns: 1fr 40px;
+
+        .widget-value {
+            input {
+                border: 1px dotted #000;
+                font-weight: bold;
+                font-size: 24px;
+                max-width: 100%;
+                padding: 5px;
+                text-align: center;
+
+                &.juiced {
+                    background: #A9F2E4;
+                }
+
+                &.dead {
+                    background: crimson;
+                    color: #fff;
+                }
+            }
+        }
+
+        .widget-controls {
+            svg {
+                color: #fff;
+            }
+
+            button {
+                height: calc(50% - 2px);
+
+                &:first-child {
+                    margin-bottom: 2px;
+                }
+
+                &:second-child {
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+}
+
+.three-stat-wrapper {
     display: grid;
     grid-column-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     height: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
     .stat {
         text-align: center;
@@ -94,25 +226,84 @@ input[type="number"] {
         top: 50%;
 
         .text-wrapper {
-            @include goldCircleText();
+            @include circleText();
             height: 40px;
             line-height: 36px;
-            //padding: 1px 6px;
             width: 40px;
         }
     }
 }
 
-.ability-skills-wrapper {
+.spell-slots {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: auto 1fr;
+    margin-bottom: 10px;
+
+    .label {
+        align-self: center;
+    }
+}
+
+.spell-slot-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.spell-slot {
+    display: inline;
+    padding: 0 4px;
+}
+
+.bonus-spell-list {
+    list-style: circle;
+    margin: 10px 0 0 0;
+    padding: 0 0 0 20px;
+
+    .em {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.spell-description {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.death-saves-wrapper {
     display: grid;
     grid-column-gap: 20px;
-    grid-template-columns: 130px 1fr;
+    grid-template-columns: 2fr 1fr;
+}
+
+.monies-counts-wrapper {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.monies-count {
+    flex: 0 0 30%;
+    padding: 0;
+}
+
+.notes {
+    textarea {
+        font-size: 14px;
+
+    }
 }
 
 .skills-list {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -124,12 +315,8 @@ input[type="number"] {
     text-align: center;
 
     .label {
-        display: block;
-        margin-bottom: 4px;
-
-        .text-wrapper {
-            @include labelText();
-        }
+        display: inline-block;
+        margin-bottom: 8px;
     }
 
     .value {
@@ -138,37 +325,51 @@ input[type="number"] {
         font-weight: bold;
 
         &.proficient .text-wrapper{
-            @include goldCircleText();
+            @include circleTextAlt();
             height: 24px;
             width: 24px;
         }
     }
 }
 
+.ability-scores {
+    margin-bottom: 40px;
+}
+
 .ability-score-list {
     border: 2px dotted #000;
     border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .ability-score-list-item {
-    border-bottom: 2px dotted #000;
+    border: 2px dotted #000;
+    border-left: none;
+    border-top: none;
     height: 90px;
+    padding: 4px 6px;
     position: relative;
     text-align: center;
 
-    &:last-child {
-        border-bottom: 0;
+    &:nth-child(3) {
+        border-right: none;
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+        border-bottom: none;
+    }
+
+    &:nth-child(6) {
+        border: none;
     }
 
     .label {
         display: block;
-
-        .text-wrapper {
-            @include labelText();
-        }
     }
 
     .value {
@@ -187,86 +388,14 @@ input[type="number"] {
         width: 100%;
 
         .text-wrapper {
-            @include goldCircleText();
+            @include circleText();
             font-size: 12px;
             height: 24px;
-            //line-height: 18px;
             width: 24px;
         }
-    }
-}
 
-/*
-.ability-scores {
-    margin-bottom: 40px;
-}
-
-.ability-score-list {
-    border: 2px dotted #000;
-    border-radius: 6px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.ability-score-list-item {
-    border: 2px dotted #000;
-    border-left: none;
-    height: 80px;
-    position: relative;
-    text-align: center;
-
-    &:nth-child(1),
-    &:nth-child(2) {
-        border-top: none;
-    }
-
-    &:nth-child(3) {
-        border-right: none;
-        border-top: none;
-    }
-
-    &:nth-child(4),
-    &:nth-child(5) {
-        border-bottom: none;
-        border-top: none;
-    }
-
-    &:nth-child(6) {
-        border: none;
-    }
-
-    .label {
-        position: absolute;
-        bottom: 4px;
-        left: 0;
-        width: 100%;
-
-        .text-wrapper {
-            @include labelText();
-        }
-    }
-
-    .value {
-        font-size: 26px;
-        font-weight: bold;
-        position: absolute;
-        top: 20px;
-        left: 0;
-        width: 100%;
-    }
-
-    .modifier {
-        .text-wrapper {
-            @include goldCircleText();
-            font-size: 12px;
-            height: 24px;
-            line-height: 18px;
-            margin-top: 2px;
-            width: 24px;
+        .text-wrapper-alt {
+            @include circleTextAlt();
         }
     }
 }
-*/

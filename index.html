@@ -13,7 +13,7 @@
 
 <body>
   <main class="main-container">
-    <section class="grid ac-prof-init-wrapper">
+    <section class="three-stat-wrapper section">
       <div class="stat stat-with-icon stat-ac">
         <div class="stat-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -59,7 +59,293 @@
       </div>
     </section>
 
+    <section class="attacks section">
+      <h2 class="h2"><span class="label">Attacks</span></h2>
+
+      <table class="attacks-table">
+        <thead>
+          <tr>
+            <th><span class="label"><span class="text-wrapper">Name</span></span></th>
+            <th><span class="label"><span class="text-wrapper">Bonus</span></span></th>
+            <th><span class="label"><span class="text-wrapper">Damage/Type</span></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Deadeye Arcus</td>
+            <td>+10</td>
+            <td>1d8+5/Piercing</td>
+          </tr>
+          <tr>
+            <td>Old Jack's Scimitar</td>
+            <td>+8</td>
+            <td>1d6+5/Slashing</td>
+          </tr>
+          <tr>
+            <td>Short Sword</td>
+            <td>+7</td>
+            <td>1d6+4/Piercing</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="game-wrapper">
+      <form action="" id="session-form">
+        <h2 class="h2"><span class="label">Health</span></h2>
+
+        <div class="widgets-wrapper section">
+          <div class="widget-number-box">
+            <div class="widget-value">
+              <label class="label" for="hp">Hit Points</label>
+              <input type="number" name="hp" id="hp" value="35" readonly />
+            </div>
+            <div class="widget-controls">
+              <button class="button" type="button" name="hp-up" id="hp-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+              </button>
+              <button class="button" type="button" name="hp-dn" id="hp-dn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="widget-number-box">
+            <div class="widget-value">
+              <label class="label" for="hit-dice">Hit Dice</label>
+              <input type="number" name="hit-dice" id="hit-dice" value="6" />
+            </div>
+            <div class="widget-controls">
+              <button class="button" type="button" id="hit-dice-up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+              </button>
+              <button class="button" type="button" id="hit-dice-dn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <section class="death-saves-wrapper section">
+          <table class="death-saves-table">
+            <tr>
+              <td><span class="label">Death Success</span></td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-success" />
+              </td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-success" />
+              </td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-success" />
+              </td>
+            </tr>
+            <tr>
+              <td><span class="label">Death Failure</span></td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-failure" />
+              </td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-failure" />
+              </td>
+              <td>
+                <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-failure" />
+              </td>
+            </tr>
+          </table>
+
+          <button class="button" type="button" id="death-saves-reset" class="death-saves-reset">Clear</button>
+        </section>
+
+        <section class="spells section">
+          <h2 class="h2">
+            <span class="label">Spell Casting</span>
+          </h2>
+
+          <section class="three-stat-wrapper">
+            <div class="stat stat-with-icon stat-spell-save-dc">
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader">
+                  <line x1="12" y1="2" x2="12" y2="6"></line>
+                  <line x1="12" y1="18" x2="12" y2="22"></line>
+                  <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                  <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                  <line x1="2" y1="12" x2="6" y2="12"></line>
+                  <line x1="18" y1="12" x2="22" y2="12"></line>
+                  <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                  <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                </svg>
+              </div>
+              <div class="stat-label">
+                <span class="text-wrapper">Save DC</span>
+              </div>
+              <div class="stat-number">
+                <span class="text-wrapper">14</span>
+              </div>
+            </div>
+            <div class="stat stat-with-icon stat-spell-attack-bonus">
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="stat-label">
+                <span class="text-wrapper">Attack Bonus</span>
+              </div>
+              <div class="stat-number">
+                <span class="text-wrapper">+6</span>
+              </div>
+            </div>
+            <div class="stat stat-with-icon ">
+              <!-- empty? -->
+            </div>
+          </section>
+
+          <section class="spell-slots">
+            <span class="label">Level 1</span>
+
+            <ol class="spell-slot-list">
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
+              </li>
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
+              </li>
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
+              </li>
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
+              </li>
+            </ol>
+          </section>
+
+          <section class="spell-slots">
+            <span class="label">Level 2</span>
+
+            <ol class="spell-slot-list">
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
+              </li>
+              <li class="spell-slot">
+                <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
+              </li>
+            </ol>
+          </section>
+
+          <section class="bonus-spells">
+            <span class="label">Bonus Spells</span>
+
+            <ul class="bonus-spell-list">
+              <li>
+                <a href="https://roll20.net/compendium/dnd5e/Protection%20from%20Evil%20and%20Good#h-Protection%20from%20Evil%20and%20Good" rel="external" data-toggler="toggle-spell-1">Protection from Evil and Good</a> (lvl 1)
+
+                <article class="hidden toggle-content spell-description" id="toggle-spell-1">
+                  <em class="em">1st Level Abjuration</em>
+
+                  <dl>
+                    <dt>Casting Time</dt>
+                    <dd>1 action</dd>
+
+                    <dt>Range</dt>
+                    <dd>Touch</dd>
+
+                    <dt>Components</dt>
+                    <dd>V S M</dd>
+
+                    <dt>Duration</dt>
+                    <dd>Concentration, up to 10 minutes</dd>
+
+                    <dt>Classes</dt>
+                    <dd>Cleric, Paladin, Warlock, Wizard</dd>
+                  </dl>
+
+                  <p>
+                    Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations,
+                    celestials, elementals, fey, fiends, and undead.
+                  </p>
+                  <p>
+                    The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target.
+                    The target also can’t be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or
+                    possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.
+                  </p>
+                </article>
+              </li>
+              <li>
+                <a href="https://roll20.net/compendium/dnd5e/Misty%20Step#content" rel="external" data-toggler="toggle-spell-2">Misty Step</a> (lvl 2)
+
+                <article class="hidden toggle-content spell-description" id="toggle-spell-2">
+                  <em class="em">2nd Level Conjuration</em>
+
+                  <dl>
+                    <dt>Casting Time</dt>
+                    <dd>1 bonus action</dd>
+
+                    <dt>Range</dt>
+                    <dd>Self</dd>
+
+                    <dt>Componets</dt>
+                    <dd>V</dd>
+
+                    <dt>Duration</dt>
+                    <dd>Instantaneous</dd>
+
+                    <dt>Classes</dt>
+                    <dd>Sorceror, Warlock, Wizard</dd>
+                  </dl>
+
+                  <p>
+                    Briefly surrounded by silvery mist, you Teleport up to 30 feet to an unoccupied space that you can see.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="monies-notes section">
+          <h2 class="h2">
+            <span class="label">Monies &amp; Notes</span>
+          </h2>
+
+          <ul class="monies-counts-wrapper">
+            <li class="monies-count">
+              <label class="label" for="gp">Gold</label>
+              <input type="number" name="gp" id="gp" value="0" />
+            </li>
+
+            <li class="monies-count">
+              <label class="label" for="sp">Silver</label>
+              <input type="number" name="sp" id="sp" value="0" />
+            </li>
+
+            <li class="monies-count">
+              <label class="label" for="bp">Bronze</label>
+              <input type="number" name="bp" id="bp" value="0" />
+            </li>
+          </ul>
+
+          <h3 class="h3">
+            <label class="label" for="notes">Notes</label>
+          </h3>
+          <textarea name="notes" id="notes" cols="30" rows="7"></textarea>
+        </section>
+      </form>
+    </section>
+
     <section class="ability-skills-wrapper">
+      <h2 class="h2">
+        <span class="label">Abilities &amp; Skills</span>
+      </h2>
+
       <section class="ability-scores">
         <ul class="ability-score-list">
           <li class="ability-score-list-item">
@@ -69,6 +355,7 @@
             <span class="value">10</span>
             <span class="modifier">
               <span class="text-wrapper">0</span>
+              <span class="text-wrapper text-wrapper-alt">+3</span>
             </span>
           </li>
           <li class="ability-score-list-item">
@@ -78,6 +365,7 @@
             <span class="value">18</span>
             <span class="modifier">
               <span class="text-wrapper">+4</span>
+              <span class="text-wrapper text-wrapper-alt">+7</span>
             </span>
           </li>
           <li class="ability-score-list-item">
@@ -123,7 +411,7 @@
         <ul class="skills-list">
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Acrobatics</span>
+              <span class="text-wrapper">Acrobatics (Dex)</span>
             </span>
             <span class="value proficient">
               <span class="text-wrapper">+4</span>
@@ -131,7 +419,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Animal Handling</span>
+              <span class="text-wrapper">Animal Handling (Wis)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+3</span>
@@ -139,7 +427,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Arcana</span>
+              <span class="text-wrapper">Arcana (Int)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -147,7 +435,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Athletics</span>
+              <span class="text-wrapper">Athletics (Str)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+0</span>
@@ -155,7 +443,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Deception</span>
+              <span class="text-wrapper">Deception (Cha)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -163,7 +451,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">History</span>
+              <span class="text-wrapper">History (Int)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -171,7 +459,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Insight</span>
+              <span class="text-wrapper">Insight (Wis)</span>
             </span>
             <span class="value proficient">
               <span class="text-wrapper">+6</span>
@@ -179,7 +467,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Intimidation</span>
+              <span class="text-wrapper">Intimidation (Cha)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -187,7 +475,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Investigation</span>
+              <span class="text-wrapper">Investigation (Int)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -195,7 +483,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Medicine</span>
+              <span class="text-wrapper">Medicine (Wis)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+3</span>
@@ -203,7 +491,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Nature</span>
+              <span class="text-wrapper">Nature (Int)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -211,7 +499,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Perception</span>
+              <span class="text-wrapper">Perception (Wis)</span>
             </span>
             <span class="value proficient">
               <span class="text-wrapper">+6</span>
@@ -219,7 +507,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Performance</span>
+              <span class="text-wrapper">Performance (Cha)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -227,7 +515,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Persuasion</span>
+              <span class="text-wrapper">Persuasion (Cha)</span>
             </span>
             <span class="value proficient">
               <span class="text-wrapper">+4</span>
@@ -235,7 +523,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Religion</span>
+              <span class="text-wrapper">Religion (Int)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+1</span>
@@ -243,7 +531,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Sleight of Hand</span>
+              <span class="text-wrapper">Sleight of Hand (Dex)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+4</span>
@@ -251,7 +539,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Stealth</span>
+              <span class="text-wrapper">Stealth (Dex)</span>
             </span>
             <span class="value proficient">
               <span class="text-wrapper">+7</span>
@@ -259,7 +547,7 @@
           </li>
           <li class="skills-list-item">
             <span class="label">
-              <span class="text-wrapper">Survival</span>
+              <span class="text-wrapper">Survival (Wis)</span>
             </span>
             <span class="value">
               <span class="text-wrapper">+3</span>
@@ -268,109 +556,6 @@
         </ul>
       </section> <!--/.skills-->
     </section> <!--/.ability-skills-wrapper-->
-
-      <form action="" id="session-form">
-        <div class="row">
-          <div class="col-md">
-            <input type="number" name="hp" id="hp" value="35" class="mine-textbox" />
-          </div>
-          <div class="col-sm">
-            <button type="button" name="hp-up" id="hp-up">UP</button>
-            <button type="button" name="hp-dn" id="hp-dn">DN</button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md">
-            <input type="number" name="hit-dice" id="hit-dice" value="6" class="mine-textbox" />
-          </div>
-          <div class="col-sm">
-            <button type="button" id="hit-dice-up">UP</button>
-            <button type="button" id="hit-dice-dn">DN</button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md">
-            <span class="label">Death Saves</span>
-            <table>
-              <tr>
-                <td>&nbsp;</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td>Success</td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-success" />
-                </td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-success" />
-                </td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-success" />
-                </td>
-              </tr>
-              <tr>
-                <td>Failure</td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-failure" />
-                </td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-failure" />
-                </td>
-                <td>
-                  <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-failure" />
-                </td>
-              </tr>
-            </table>
-
-            <button type="button" id="death-saves-reset">Clear</button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md">
-            <span class="label">Spell Save DC (8 + Wisdom mod + Proficiency)</span>
-            <span class="value">14</span>
-
-            <span class="label">Spell Attack Bonus (Wisdom mod + Proficiency)</span>
-            <span class="value">+6</span>
-
-            <span class="label">Spell Slots</span>
-
-            <table>
-              <tr>
-                <td>Level 1</td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
-                </td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
-                </td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
-                </td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
-                </td>
-              </tr>
-              <tr>
-                <td>Level 2</td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
-                </td>
-                <td>
-                  <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </form>
 
   </main>
 </body>

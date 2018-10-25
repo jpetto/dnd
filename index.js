@@ -35,17 +35,32 @@
     }
 
     HPUP.addEventListener('click', () => {
-        const NEWHP = increment(parseInt(HP.value, 10), HPMAX);
+        const NEWHP = parseInt(HP.value, 10) + 1;
         HP.value = NEWHP;
+
+        if (NEWHP > HPMAX) {
+            HP.classList.add('juiced');
+        } else if (NEWHP > 0) {
+            HP.classList.remove('dead');
+        }
     });
 
     HPDN.addEventListener('click', () => {
         const NEWHP = decrement(parseInt(HP.value, 10));
         HP.value = NEWHP;
+
+        if (NEWHP <= HPMAX) {
+            HP.classList.remove('juiced');
+
+            if (NEWHP === 0) {
+                HP.classList.add('dead');
+            }
+        }
     });
 
     HITDICEUP.addEventListener('click', () => {
         const NEWHITDICE = increment(parseInt(HITDICE.value, 10), HITDICEMAX);
+
         HITDICE.value = NEWHITDICE;
     });
 
@@ -59,4 +74,24 @@
             radio.checked = false;
         });
     });
+
+    const TOGGLERS = document.querySelectorAll('a[data-toggler]');
+    const TOGGLER_CONTENTS = document.querySelectorAll('.toggle-content');
+
+    TOGGLERS.forEach(element => {
+        element.setAttribute('role', 'button');
+        element.addEventListener('click', e => {
+            e.preventDefault();
+
+            const TARGET = document.getElementById(element.dataset.toggler);
+            TARGET.classList.toggle('hidden');
+        });
+    });
+
+    TOGGLER_CONTENTS.forEach( element => {
+        element.addEventListener('click', () => {
+            element.classList.add('hidden');
+        })
+    })
+
 })();
