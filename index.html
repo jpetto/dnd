@@ -6,13 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
+  <form action="" id="session-form">
+
   <main class="main-container">
+    <section class="session-start section">
+      <label for="session-date">Session</label>
+      <input type="date" name="session-date" id="session-date" />
+
+      <button type="button" id="session-start">Start Session</button>
+    </section>
+
     <section class="three-stat-wrapper section">
       <div class="stat stat-with-icon stat-ac">
         <div class="stat-icon">
@@ -25,7 +34,7 @@
           <span class="text-wrapper">AC</span>
         </div>
         <div class="stat-number">
-          <span class="text-wrapper">17</span>
+          <span class="text-wrapper" id="ac"></span>
         </div>
       </div>
       <div class="stat stat-with-icon stat-proficiency">
@@ -39,7 +48,7 @@
           <span class="text-wrapper">Proficiency</span>
         </div>
         <div class="stat-number">
-          <span class="text-wrapper">+3</span>
+          <span class="text-wrapper" id="proficiency"></span>
         </div>
       </div>
       <div class="stat stat-with-icon stat-initiative">
@@ -54,7 +63,7 @@
           <span class="text-wrapper">Initiative</span>
         </div>
         <div class="stat-number">
-          <span class="text-wrapper">+4</span>
+          <span class="text-wrapper" id="initiative"></span>
         </div>
       </div>
     </section>
@@ -91,254 +100,253 @@
     </section>
 
     <section class="game-wrapper">
-      <form action="" id="session-form">
-        <h2 class="h2"><span class="label">Health</span></h2>
 
-        <div class="widgets-wrapper section">
-          <div class="widget-number-box">
-            <div class="widget-value">
-              <label class="label" for="hp">Hit Points</label>
-              <input type="number" name="hp" id="hp" value="35" readonly />
-            </div>
-            <div class="widget-controls">
-              <button class="button" type="button" name="hp-up" id="hp-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
-                  <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-              </button>
-              <button class="button" type="button" name="hp-dn" id="hp-dn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-            </div>
+      <h2 class="h2"><span class="label">Health</span></h2>
+
+      <div class="widgets-wrapper section">
+        <div class="widget-number-box">
+          <div class="widget-value">
+            <label class="label" for="hp">Hit Points</label>
+            <input type="number" name="hp" id="hp" value="0" readonly />
           </div>
-
-          <div class="widget-number-box">
-            <div class="widget-value">
-              <label class="label" for="hit-dice">Hit Dice</label>
-              <input type="number" name="hit-dice" id="hit-dice" value="6" />
-            </div>
-            <div class="widget-controls">
-              <button class="button" type="button" id="hit-dice-up">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
-                  <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-              </button>
-              <button class="button" type="button" id="hit-dice-dn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-            </div>
+          <div class="widget-controls">
+            <button class="button" type="button" name="hp-up" id="hp-up">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </button>
+            <button class="button" type="button" name="hp-dn" id="hp-dn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <section class="death-saves-wrapper section">
-          <table class="death-saves-table">
-            <tr>
-              <td><span class="label">Death Success</span></td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-success" />
-              </td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-success" />
-              </td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-success" />
-              </td>
-            </tr>
-            <tr>
-              <td><span class="label">Death Failure</span></td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-1" id="death-save-1-failure" />
-              </td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-2" id="death-save-2-failure" />
-              </td>
-              <td>
-                <input type="radio" class="death-save-radio" name="death-save-3" id="death-save-3-failure" />
-              </td>
-            </tr>
-          </table>
+        <div class="widget-number-box">
+          <div class="widget-value">
+            <label class="label" for="hit-dice">Hit Dice</label>
+            <input type="number" name="hit-dice" id="hit-dice" value="0" />
+          </div>
+          <div class="widget-controls">
+            <button class="button" type="button" id="hit-dice-up">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </button>
+            <button class="button" type="button" id="hit-dice-dn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
 
-          <button class="button" type="button" id="death-saves-reset" class="death-saves-reset">Clear</button>
+      <section class="death-saves-wrapper section">
+        <table class="death-saves-table" id="death-saves-table">
+          <tr>
+            <td><span class="label">Death Success</span></td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="1" name="death-save-1" id="death-save-1-success" />
+            </td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="2" name="death-save-2" id="death-save-2-success" />
+            </td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="3" name="death-save-3" id="death-save-3-success" />
+            </td>
+          </tr>
+          <tr>
+            <td><span class="label">Death Failure</span></td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="1" name="death-save-1" id="death-save-1-failure" />
+            </td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="2" name="death-save-2" id="death-save-2-failure" />
+            </td>
+            <td>
+              <input type="radio" class="death-save-radio" data-death-save-number="3" name="death-save-3" id="death-save-3-failure" />
+            </td>
+          </tr>
+        </table>
+
+        <button class="button" type="button" id="death-saves-reset" class="death-saves-reset">Clear</button>
+      </section>
+
+      <section class="spells section">
+        <h2 class="h2">
+          <span class="label">Spell Casting</span>
+        </h2>
+
+        <section class="three-stat-wrapper">
+          <div class="stat stat-with-icon stat-spell-save-dc">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader">
+                <line x1="12" y1="2" x2="12" y2="6"></line>
+                <line x1="12" y1="18" x2="12" y2="22"></line>
+                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                <line x1="2" y1="12" x2="6" y2="12"></line>
+                <line x1="18" y1="12" x2="22" y2="12"></line>
+                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+              </svg>
+            </div>
+            <div class="stat-label">
+              <span class="text-wrapper">Save DC</span>
+            </div>
+            <div class="stat-number">
+              <span class="text-wrapper" id="spell-save-dc"></span>
+            </div>
+          </div>
+          <div class="stat stat-with-icon stat-spell-attack-bonus">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="stat-label">
+              <span class="text-wrapper">Attack Bonus</span>
+            </div>
+            <div class="stat-number">
+              <span class="text-wrapper" id="spell-attack-bonus"></span>
+            </div>
+          </div>
+          <div class="stat stat-with-icon ">
+            <!-- empty? -->
+          </div>
         </section>
 
-        <section class="spells section">
-          <h2 class="h2">
-            <span class="label">Spell Casting</span>
-          </h2>
+        <section class="spell-slots">
+          <span class="label">Level 1</span>
 
-          <section class="three-stat-wrapper">
-            <div class="stat stat-with-icon stat-spell-save-dc">
-              <div class="stat-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader">
-                  <line x1="12" y1="2" x2="12" y2="6"></line>
-                  <line x1="12" y1="18" x2="12" y2="22"></line>
-                  <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                  <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                  <line x1="2" y1="12" x2="6" y2="12"></line>
-                  <line x1="18" y1="12" x2="22" y2="12"></line>
-                  <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                  <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-                </svg>
-              </div>
-              <div class="stat-label">
-                <span class="text-wrapper">Save DC</span>
-              </div>
-              <div class="stat-number">
-                <span class="text-wrapper">14</span>
-              </div>
-            </div>
-            <div class="stat stat-with-icon stat-spell-attack-bonus">
-              <div class="stat-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <div class="stat-label">
-                <span class="text-wrapper">Attack Bonus</span>
-              </div>
-              <div class="stat-number">
-                <span class="text-wrapper">+6</span>
-              </div>
-            </div>
-            <div class="stat stat-with-icon ">
-              <!-- empty? -->
-            </div>
-          </section>
-
-          <section class="spell-slots">
-            <span class="label">Level 1</span>
-
-            <ol class="spell-slot-list">
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
-              </li>
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
-              </li>
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
-              </li>
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
-              </li>
-            </ol>
-          </section>
-
-          <section class="spell-slots">
-            <span class="label">Level 2</span>
-
-            <ol class="spell-slot-list">
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
-              </li>
-              <li class="spell-slot">
-                <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
-              </li>
-            </ol>
-          </section>
-
-          <section class="bonus-spells">
-            <span class="label">Bonus Spells</span>
-
-            <ul class="bonus-spell-list">
-              <li>
-                <a href="https://roll20.net/compendium/dnd5e/Protection%20from%20Evil%20and%20Good#h-Protection%20from%20Evil%20and%20Good" rel="external" data-toggler="toggle-spell-1">Protection from Evil and Good</a> (lvl 1)
-
-                <article class="hidden toggle-content spell-description" id="toggle-spell-1">
-                  <em class="em">1st Level Abjuration</em>
-
-                  <dl>
-                    <dt>Casting Time</dt>
-                    <dd>1 action</dd>
-
-                    <dt>Range</dt>
-                    <dd>Touch</dd>
-
-                    <dt>Components</dt>
-                    <dd>V S M</dd>
-
-                    <dt>Duration</dt>
-                    <dd>Concentration, up to 10 minutes</dd>
-
-                    <dt>Classes</dt>
-                    <dd>Cleric, Paladin, Warlock, Wizard</dd>
-                  </dl>
-
-                  <p>
-                    Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations,
-                    celestials, elementals, fey, fiends, and undead.
-                  </p>
-                  <p>
-                    The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target.
-                    The target also can’t be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or
-                    possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.
-                  </p>
-                </article>
-              </li>
-              <li>
-                <a href="https://roll20.net/compendium/dnd5e/Misty%20Step#content" rel="external" data-toggler="toggle-spell-2">Misty Step</a> (lvl 2)
-
-                <article class="hidden toggle-content spell-description" id="toggle-spell-2">
-                  <em class="em">2nd Level Conjuration</em>
-
-                  <dl>
-                    <dt>Casting Time</dt>
-                    <dd>1 bonus action</dd>
-
-                    <dt>Range</dt>
-                    <dd>Self</dd>
-
-                    <dt>Componets</dt>
-                    <dd>V</dd>
-
-                    <dt>Duration</dt>
-                    <dd>Instantaneous</dd>
-
-                    <dt>Classes</dt>
-                    <dd>Sorceror, Warlock, Wizard</dd>
-                  </dl>
-
-                  <p>
-                    Briefly surrounded by silvery mist, you Teleport up to 30 feet to an unoccupied space that you can see.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
+          <ol class="spell-slot-list">
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
+            </li>
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
+            </li>
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
+            </li>
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
+            </li>
+          </ol>
         </section>
 
-        <section class="monies-notes section">
-          <h2 class="h2">
-            <span class="label">Monies &amp; Notes</span>
-          </h2>
+        <section class="spell-slots">
+          <span class="label">Level 2</span>
 
-          <ul class="monies-counts-wrapper">
-            <li class="monies-count">
-              <label class="label" for="gp">Gold</label>
-              <input type="number" name="gp" id="gp" value="0" />
+          <ol class="spell-slot-list">
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
             </li>
-
-            <li class="monies-count">
-              <label class="label" for="sp">Silver</label>
-              <input type="number" name="sp" id="sp" value="0" />
+            <li class="spell-slot">
+              <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
             </li>
+          </ol>
+        </section>
 
-            <li class="monies-count">
-              <label class="label" for="bp">Bronze</label>
-              <input type="number" name="bp" id="bp" value="0" />
+        <section class="bonus-spells">
+          <span class="label">Bonus Spells</span>
+
+          <ul class="bonus-spell-list">
+            <li>
+              <a href="https://roll20.net/compendium/dnd5e/Protection%20from%20Evil%20and%20Good#h-Protection%20from%20Evil%20and%20Good" rel="external" data-toggler="toggle-spell-1">Protection from Evil and Good</a> (lvl 1)
+
+              <article class="hidden toggle-content spell-description" id="toggle-spell-1">
+                <em class="em">1st Level Abjuration</em>
+
+                <dl>
+                  <dt>Casting Time</dt>
+                  <dd>1 action</dd>
+
+                  <dt>Range</dt>
+                  <dd>Touch</dd>
+
+                  <dt>Components</dt>
+                  <dd>V S M</dd>
+
+                  <dt>Duration</dt>
+                  <dd>Concentration, up to 10 minutes</dd>
+
+                  <dt>Classes</dt>
+                  <dd>Cleric, Paladin, Warlock, Wizard</dd>
+                </dl>
+
+                <p>
+                  Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations,
+                  celestials, elementals, fey, fiends, and undead.
+                </p>
+                <p>
+                  The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target.
+                  The target also can’t be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or
+                  possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.
+                </p>
+              </article>
+            </li>
+            <li>
+              <a href="https://roll20.net/compendium/dnd5e/Misty%20Step#content" rel="external" data-toggler="toggle-spell-2">Misty Step</a> (lvl 2)
+
+              <article class="hidden toggle-content spell-description" id="toggle-spell-2">
+                <em class="em">2nd Level Conjuration</em>
+
+                <dl>
+                  <dt>Casting Time</dt>
+                  <dd>1 bonus action</dd>
+
+                  <dt>Range</dt>
+                  <dd>Self</dd>
+
+                  <dt>Componets</dt>
+                  <dd>V</dd>
+
+                  <dt>Duration</dt>
+                  <dd>Instantaneous</dd>
+
+                  <dt>Classes</dt>
+                  <dd>Sorceror, Warlock, Wizard</dd>
+                </dl>
+
+                <p>
+                  Briefly surrounded by silvery mist, you Teleport up to 30 feet to an unoccupied space that you can see.
+                </p>
+              </div>
             </li>
           </ul>
-
-          <h3 class="h3">
-            <label class="label" for="notes">Notes</label>
-          </h3>
-          <textarea name="notes" id="notes" cols="30" rows="7"></textarea>
         </section>
-      </form>
+      </section>
+
+      <section class="monies-notes section">
+        <h2 class="h2">
+          <span class="label">Monies &amp; Notes</span>
+        </h2>
+
+        <ul class="monies-counts-wrapper">
+          <li class="monies-count">
+            <label class="label" for="gp">Gold</label>
+            <input type="number" name="gp" id="gp" value="0" />
+          </li>
+
+          <li class="monies-count">
+            <label class="label" for="sp">Silver</label>
+            <input type="number" name="sp" id="sp" value="0" />
+          </li>
+
+          <li class="monies-count">
+            <label class="label" for="bp">Bronze</label>
+            <input type="number" name="bp" id="bp" value="0" />
+          </li>
+        </ul>
+
+        <h3 class="h3">
+          <label class="label" for="notes">Notes</label>
+        </h3>
+        <textarea name="notes" id="notes" cols="30" rows="7"></textarea>
+      </section>
     </section>
 
     <section class="ability-skills-wrapper">
@@ -558,8 +566,10 @@
     </section> <!--/.ability-skills-wrapper-->
 
   </main>
+
+  </form>
 </body>
 
-<script src="index.js"></script>
+<script src="index.js" type="module"></script>
 
 </html>

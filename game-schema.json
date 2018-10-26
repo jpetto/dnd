@@ -1,0 +1,38 @@
+{
+    "id": "2018103013041123",
+    "date": "2018-10-30",
+    "goal": "Some goal",
+    "hp_start": 35,
+    "hp_end": 21,
+    "level": 6,
+    "xp_earned": 1234,
+    "spells": [
+        {
+            "level": 1,
+            "slots_start": 4,
+            "slots_end": 1
+        },
+        {
+            "level": 2,
+            "slots_start": 2,
+            "slots_end": 0
+        }
+    ],
+    "notes": "We did some stuff and found some things and there was a portal blah blah.",
+    "money": {
+        "gold": 12345,
+        "silver": 1234,
+        "bronze": 123
+    },
+    "items": [
+        "cloak",
+        "scroll",
+        "potion"
+    ],
+    "players": [
+        "Maynard",
+        "The Shibboleth",
+        "Toothbreaker",
+        "Caturra"
+    ]
+}
