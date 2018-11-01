@@ -112,7 +112,7 @@ dt {
 }
 
 .main-container {
-    margin: 40px auto;
+    margin: 0 auto 40px;
     max-width: 600px;
     min-width: 320px;
     padding: 0 20px;
@@ -122,6 +122,19 @@ dt {
     background: #f2f2f2;
     margin: 4px 0 10px;
     padding: 16px;
+}
+
+.character-details-list {
+    list-style: none;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+}
+
+.character-detail .label {
+    display: block;
+    text-align: center;
 }
 
 .attacks-table {
@@ -233,6 +246,7 @@ dt {
 
         .text-wrapper {
             @include circleText();
+            font-size: 16px;
             height: 40px;
             line-height: 36px;
             width: 40px;

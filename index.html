@@ -15,11 +15,21 @@
   <form action="" id="session-form">
 
   <main class="main-container">
-    <section class="session-start section">
-      <label for="session-date">Session</label>
-      <input type="date" name="session-date" id="session-date" />
-
-      <button type="button" id="session-start">Start Session</button>
+    <section class="character-details section">
+      <ul class="character-details-list">
+        <li class="character-detail">
+          <span class="label" id="character-name"></span>
+        </li>
+        <li class="character-detail">
+          <span class="label" id="character-race"></span>
+        </li>
+        <li class="character-detail">
+          <span class="label" id="character-class-level"></span>
+        </li>
+        <li class="character-detail">
+          <span class="label" id="character-xp"></span>
+        </li>
+      </ul>
     </section>
 
     <section class="three-stat-wrapper section">
@@ -218,37 +228,7 @@
           </div>
         </section>
 
-        <section class="spell-slots">
-          <span class="label">Level 1</span>
-
-          <ol class="spell-slot-list">
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-1-1" id="spell-slot-level-1-1" />
-            </li>
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-1-2" id="spell-slot-level-1-2" />
-            </li>
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-1-3" id="spell-slot-level-1-3" />
-            </li>
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-1-4" id="spell-slot-level-1-4" />
-            </li>
-          </ol>
-        </section>
-
-        <section class="spell-slots">
-          <span class="label">Level 2</span>
-
-          <ol class="spell-slot-list">
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-2-1" id="spell-slot-level-2-1" />
-            </li>
-            <li class="spell-slot">
-              <input type="checkbox" name="spell-slot-level-2-2" id="spell-slot-level-2-2" />
-            </li>
-          </ol>
-        </section>
+        <div id="spell-slots-wrapper"></div>
 
         <section class="bonus-spells">
           <span class="label">Bonus Spells</span>
@@ -328,17 +308,17 @@
         <ul class="monies-counts-wrapper">
           <li class="monies-count">
             <label class="label" for="gp">Gold</label>
-            <input type="number" name="gp" id="gp" value="0" />
+            <input class="money" type="number" name="gp" id="gp" value="0" />
           </li>
 
           <li class="monies-count">
             <label class="label" for="sp">Silver</label>
-            <input type="number" name="sp" id="sp" value="0" />
+            <input class="money" type="number" name="sp" id="sp" value="0" />
           </li>
 
           <li class="monies-count">
             <label class="label" for="bp">Bronze</label>
-            <input type="number" name="bp" id="bp" value="0" />
+            <input class="money" type="number" name="bp" id="bp" value="0" />
           </li>
         </ul>
 
