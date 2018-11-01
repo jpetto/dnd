@@ -31,6 +31,20 @@ const character = {
             "damage": "1d6+4",
             "type": "piercing"
         }
+    ],
+    "random_items": [
+        "hot pink & white silk strip (from privateers' tent)",
+        "2 daggers",
+        "elven playing cards",
+        "30 drow arrows",
+        "drow wine",
+        "Cas' fancy cloak (worth 100GP)",
+        "King Bear's letter to the ancient elves",
+        "fancy fashion butt plate",
+        "piece of alien crab shell",
+        "dried fish",
+        "dried meat",
+        "petrified songbird"
     ]
 };
 

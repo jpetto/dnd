@@ -39,6 +39,8 @@ import character from './character.js';
     const SPELLSAVEDC = document.getElementById('spell-save-dc');
     const SPELLATTACKBONUS = document.getElementById('spell-attack-bonus');
 
+    const RANDOMITEMS = document.getElementById('random-items');
+
     // spell details, basically
     const TOGGLERS = document.querySelectorAll('a[data-toggler]');
     const TOGGLER_CONTENTS = document.querySelectorAll('.toggle-content');
@@ -155,6 +157,8 @@ import character from './character.js';
         INITIATIVE.textContent = `+${character.initiative}`;
         SPELLSAVEDC.textContent = character.spell_save_dc;
         SPELLATTACKBONUS.textContent = `+${character.spell_attack_bonus}`;
+
+        RANDOMITEMS.innerHTML = character.random_items.map(item => `<li class="random-item">${item}</li>`).join('');
 
         return game;
     }
