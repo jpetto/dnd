@@ -3,9 +3,9 @@ const character = {
     "class": "Ranger",
     "race": "Wood Elf",
     "level": 6,
-    "experience": 16985,
+    "experience": 20875,
     "experience_next": 23000,
-    "hp": 35,
+    "hp": 34,
     "spell_slots": [4, 2],
     "spell_save_dc": 14,
     "spell_attack_bonus": 6,
@@ -44,7 +44,10 @@ const character = {
         "piece of alien crab shell",
         "dried fish",
         "dried meat",
-        "petrified songbird"
+        "petrified songbird",
+        "beetle goo",
+        "colorful giant parrot feather",
+        "woven mats (from drow guardian spider's chest)",
     ]
 };
 

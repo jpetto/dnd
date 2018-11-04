@@ -21,6 +21,7 @@ import character from './character.js';
     const HITDICEMAX = character.level;
 
     const MONEYINPUTS = document.querySelectorAll('.money');
+    const PP = document.getElementById('pp');
     const GP = document.getElementById('gp');
     const SP = document.getElementById('sp');
     const BP = document.getElementById('bp');
@@ -60,6 +61,7 @@ import character from './character.js';
         "spell_slots_start": [],
         "spell_slots_end": [],
         "notes": "",
+        "pp": 0,
         "gp": 0,
         "sp": 0,
         "bp": 0,
@@ -337,4 +339,11 @@ import character from './character.js';
 
     // initialize the game
     initGame(thisGame);
+
+    const DEBUG = document.getElementById('debug');
+    const PRINTDEBUG = document.getElementById('print-debug');
+
+    PRINTDEBUG.addEventListener('click', () => {
+        DEBUG.value = JSON.stringify(thisGame);
+    });
 })();
