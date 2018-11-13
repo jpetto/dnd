@@ -33,6 +33,7 @@ import character from './character.js';
     const DEATHSAVESRESET = document.getElementById('death-saves-reset');
 
     const SPELLSLOTSWRAPPER = document.getElementById('spell-slots-wrapper');
+    const SPELLLIST = document.getElementById('spell-list');
 
     const AC = document.getElementById('ac');
     const PROFICIENCY = document.getElementById('proficiency');
@@ -43,8 +44,8 @@ import character from './character.js';
     const RANDOMITEMS = document.getElementById('random-items');
 
     // spell details, basically
-    const TOGGLERS = document.querySelectorAll('a[data-toggler]');
-    const TOGGLER_CONTENTS = document.querySelectorAll('.toggle-content');
+    let Togglers;
+    let TogglerContents;
 
     const DEATHSAVESDEFAULT = [null, null, null];
 
@@ -83,6 +84,27 @@ import character from './character.js';
     GAMETEMPLATE.spell_slots_end = GAMETEMPLATE.spell_slots_start;
 
     let thisGame;
+
+    function initTogglers() {
+        Togglers = document.querySelectorAll('a[data-toggler]');
+        TogglerContents = document.querySelectorAll('.toggle-content');
+
+        Togglers.forEach(element => {
+            element.setAttribute('role', 'button');
+            element.addEventListener('click', e => {
+                e.preventDefault();
+
+                const TARGET = document.getElementById(element.dataset.toggler);
+                TARGET.classList.toggle('hidden');
+            });
+        });
+
+        TogglerContents.forEach(element => {
+            element.addEventListener('click', () => {
+                element.classList.add('hidden');
+            })
+        });
+    }
 
     function initGame(game) {
         // set hit points & hit dice
@@ -160,7 +182,18 @@ import character from './character.js';
         SPELLSAVEDC.textContent = character.spell_save_dc;
         SPELLATTACKBONUS.textContent = `+${character.spell_attack_bonus}`;
 
+        // spells
+        let spellMarkup = '';
+
+        for (let i = 0; i < character.spells.length; i++) {
+            spellMarkup += generateSpellMarkup(character.spells[i], i);
+        }
+
+        SPELLLIST.innerHTML = spellMarkup;
+
         RANDOMITEMS.innerHTML = character.random_items.map(item => `<li class="random-item">${item}</li>`).join('');
+
+        initTogglers();
 
         return game;
     }
@@ -208,6 +241,41 @@ import character from './character.js';
                     `).join('')}
                 </ol>
             </section>
+        `;
+
+        return markup;
+    }
+
+    function generateSpellMarkup(spell, index) {
+        let markup = `
+            <li>
+              <a href="" data-toggler="toggle-spell-${index}">${spell.name}</a> (lvl ${spell.level})
+
+              <article class="hidden toggle-content spell-description" id="toggle-spell-${index}">
+                <em class="em">${spell.school} / ${spell.level}</em>
+
+                <dl>
+                  <dt>Casting Time</dt>
+                  <dd>${spell.casting_time}</dd>
+
+                  <dt>Range</dt>
+                  <dd>${spell.range}</dd>
+
+                  <dt>Components</dt>
+                  <dd>${spell.components}</dd>
+
+                  <dt>Duration</dt>
+                  <dd>${spell.duration}</dd>
+
+                  <dt>Classes</dt>
+                  <dd>${spell.classes}</dd>
+                </dl>
+
+                <p>
+                    ${spell.description.replace(/\r\n/g, '</p><p>')}
+                </p>
+              </article>
+            </li>
         `;
 
         return markup;
@@ -316,22 +384,6 @@ import character from './character.js';
 
     NOTES.addEventListener('change', () => {
         updateGame(thisGame, 'notes', NOTES.value);
-    });
-
-    TOGGLERS.forEach(element => {
-        element.setAttribute('role', 'button');
-        element.addEventListener('click', e => {
-            e.preventDefault();
-
-            const TARGET = document.getElementById(element.dataset.toggler);
-            TARGET.classList.toggle('hidden');
-        });
-    });
-
-    TOGGLER_CONTENTS.forEach(element => {
-        element.addEventListener('click', () => {
-            element.classList.add('hidden');
-        })
     });
 
     // get a game object
