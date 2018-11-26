@@ -4,6 +4,7 @@ import character from './character.js';
     'use strict';
 
     const LOCALSTORAGEGAMEKEY = 'game';
+    const LOCALSTORAGEPREVIOUSGAMEKEY = 'previous-game';
 
     const CHARACTERNAME = document.getElementById('character-name');
     const CHARACTERRACE = document.getElementById('character-race');
@@ -70,6 +71,8 @@ import character from './character.js';
         "players": []
     }
 
+    let previousGame; // stores previous game (if one is found in localStorage)
+
     // populate spell slots in game template
     for (let i = 0; i < character.spell_slots.length; i++) {
         GAMETEMPLATE.spell_slots_start.push([]);
@@ -134,6 +137,7 @@ import character from './character.js';
         SPELLSLOTSWRAPPER.innerHTML = spellSlotMarkup;
 
         // set money
+        PP.value = game.pp;
         GP.value = game.gp;
         SP.value = game.sp;
         BP.value = game.bp;
@@ -161,9 +165,14 @@ import character from './character.js';
             var saveDate = new Date(game.date);
             var today = new Date();
 
-            // if game is not from today, start a new game
+            // if game is not from today, save old game and start a new one
             if (saveDate.setHours(0, 0, 0, 0) !== today.setHours(0, 0, 0, 0)) {
-                // TODO: save old game in localStorage to server?
+                // save previous game in case we want to export it
+                // TODO: send this to an API for long-term storage
+                previousGame = game;
+                localStorage.setItem(LOCALSTORAGEPREVIOUSGAMEKEY, JSON.stringify(game));
+
+                // start a new game
                 game = basegame;
             }
         // if no game is found in localStorage, start a new game
@@ -394,8 +403,13 @@ import character from './character.js';
 
     const DEBUG = document.getElementById('debug');
     const PRINTDEBUG = document.getElementById('print-debug');
+    const PRINTDEBUGPREVIOUS = document.getElementById('print-debug-previous');
 
     PRINTDEBUG.addEventListener('click', () => {
         DEBUG.value = JSON.stringify(thisGame);
+    });
+
+    PRINTDEBUGPREVIOUS.addEventListener('click', () => {
+        DEBUG.value = JSON.stringify(previousGame);
     });
 })();

@@ -3,7 +3,7 @@ const character = {
     "class": "Ranger",
     "race": "Wood Elf",
     "level": 7,
-    "experience": 23000,
+    "experience": 26625,
     "experience_next": 34000,
     "hp": 39,
     "spell_slots": [4, 3],
@@ -158,7 +158,7 @@ const character = {
     "random_items": [
         "hot pink & white silk strip (from privateers' tent)",
         "2 daggers",
-        "elven playing cards",
+        "2 decks of elven playing cards",
         "30 drow arrows",
         "drow wine",
         "Cas' fancy cloak (worth 100GP)",
@@ -171,6 +171,8 @@ const character = {
         "beetle goo",
         "colorful giant parrot feather",
         "woven mats (from drow guardian spider's chest)",
+        "elven casino dice",
+        "2 vials of drow arrow poison"
     ]
 };
 
