@@ -3,7 +3,7 @@ const character = {
     "class": "Ranger",
     "race": "Wood Elf",
     "level": 7,
-    "experience": 26625,
+    "experience": 28585,
     "experience_next": 34000,
     "hp": 39,
     "spell_slots": [4, 3],
