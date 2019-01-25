@@ -359,6 +359,10 @@ dt {
             height: 24px;
             width: 24px;
         }
+
+        &.proficient.doubled .text-wrapper {
+            box-shadow: 0 0 0 3px rgba(242, 169, 215, 0.9);
+        }
     }
 }
 

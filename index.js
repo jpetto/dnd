@@ -10,6 +10,8 @@ import character from './character.js';
     const CHARACTERRACE = document.getElementById('character-race');
     const CHARACTERCLASSLEVEL = document.getElementById('character-class-level');
     const CHARACTERXP = document.getElementById('character-xp');
+    let characterTotalLevel = 0;
+    let characterClassLevelText = '';
 
     const HP = document.getElementById('hp');
     const HPUP = document.getElementById('hp-up');
@@ -34,7 +36,7 @@ import character from './character.js';
     const DEATHSAVESRESET = document.getElementById('death-saves-reset');
 
     const SPELLSLOTSWRAPPER = document.getElementById('spell-slots-wrapper');
-    const SPELLLIST = document.getElementById('spell-list');
+    const SPELLSWRAPPER = document.getElementById('spells-wrapper');
 
     const AC = document.getElementById('ac');
     const PROFICIENCY = document.getElementById('proficiency');
@@ -56,8 +58,8 @@ import character from './character.js';
         "goal": null,
         "hp_start": character.hp,
         "hp_end": character.hp,
-        "hitdice_start": character.level,
-        "hitdice_end": character.level,
+        "hitdice_start": 0,
+        "hitdice_end": 0,
         "death_saves": DEATHSAVESDEFAULT,
         "xp_earned": null,
         "spell_slots_start": [],
@@ -154,7 +156,17 @@ import character from './character.js';
     // Check localStorage for a game that was started today.
     // If it exists, use data stored there.
     // Otherwise, use defaults from character.js.
-    function init(character, basegame) {
+    function buildGame(character, basegame) {
+        // calculate level (for hit dice) and set class/level text
+        let classLevelBuilder = [];
+
+        for (let i = 0; i < character.classes.length; i++) {
+            characterTotalLevel += character.classes[i].level;
+            classLevelBuilder.push(`${character.classes[i].type} ${character.classes[i].level}`);
+        }
+
+        characterClassLevelText = classLevelBuilder.join(' / ');
+
         let game = localStorage.getItem('game');
 
         // if we have a game, check the date
@@ -178,13 +190,15 @@ import character from './character.js';
         // if no game is found in localStorage, start a new game
         } else {
             game = basegame;
+
+            game.hitdice_start = game.hitdice_end = characterTotalLevel;
         }
 
         // populate character specific values (not stored in/per game)
         CHARACTERNAME.textContent = character.name;
         CHARACTERRACE.textContent = character.race;
-        CHARACTERCLASSLEVEL.textContent = `${character.class} / ${character.level}`;
         CHARACTERXP.textContent = `${character.experience} / ${character.experience_next}`;
+        CHARACTERCLASSLEVEL.textContent = characterClassLevelText;
         AC.textContent = character.ac;
         PROFICIENCY.textContent = `+${character.proficiency}`;
         INITIATIVE.textContent = `+${character.initiative}`;
@@ -193,12 +207,19 @@ import character from './character.js';
 
         // spells
         let spellMarkup = '';
+        let spellTypeMarkup;
 
         for (let i = 0; i < character.spells.length; i++) {
-            spellMarkup += generateSpellMarkup(character.spells[i], i);
-        }
+            for (let j = 0; j < character.spells[i].list.length; j++) {
+                spellMarkup += generateSpellMarkup(character.spells[i].list[j], `${i}-${j}`);
+            }
 
-        SPELLLIST.innerHTML = spellMarkup;
+            spellTypeMarkup = generateSpellTypeMarkup(character.spells[i].type, spellMarkup);
+
+            SPELLSWRAPPER.innerHTML += spellTypeMarkup;
+
+            spellMarkup = '';
+        }
 
         RANDOMITEMS.innerHTML = character.random_items.map(item => `<li class="random-item">${item}</li>`).join('');
 
@@ -249,6 +270,17 @@ import character from './character.js';
                         </li>
                     `).join('')}
                 </ol>
+            </section>
+        `;
+
+        return markup;
+    }
+
+    function generateSpellTypeMarkup(type, spellMarkup) {
+        let markup = `
+            <section class="spell-type-wrapper" id="spell-type-${type}">
+                <span class="label">${type}</span>
+                <ul class="spell-list">${spellMarkup}</ul>
             </section>
         `;
 
@@ -396,7 +428,7 @@ import character from './character.js';
     });
 
     // get a game object
-    thisGame = init(character, GAMETEMPLATE);
+    thisGame = buildGame(character, GAMETEMPLATE);
 
     // initialize the game
     initGame(thisGame);
