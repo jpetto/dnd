@@ -1,3 +1,5 @@
+import { ABILITIES, SKILLS } from './constants.js';
+import Utils from './utils.js';
 import character from './character.js';
 
 (function() {
@@ -21,7 +23,10 @@ import character from './character.js';
     const HITDICE = document.getElementById('hit-dice');
     const HITDICEUP = document.getElementById('hit-dice-up');
     const HITDICEDN = document.getElementById('hit-dice-dn');
-    const HITDICEMAX = character.level;
+    let HITDICEMAX; // calculate later based on character total level
+
+    const ABILITYSCORELIST = document.getElementById('ability-score-list');
+    const SKILLLIST = document.getElementById('skill-list');
 
     const MONEYINPUTS = document.querySelectorAll('.money');
     const PP = document.getElementById('pp');
@@ -133,7 +138,7 @@ import character from './character.js';
         let spellSlotMarkup = '';
 
         for (let i = 0; i < game.spell_slots_end.length; i++) {
-            spellSlotMarkup += generateSpellSlotMarkup(i + 1, game.spell_slots_end[i]);
+            spellSlotMarkup += Utils.generateSpellSlotMarkup(i + 1, game.spell_slots_end[i]);
         }
 
         SPELLSLOTSWRAPPER.innerHTML = spellSlotMarkup;
@@ -194,6 +199,15 @@ import character from './character.js';
             game.hitdice_start = game.hitdice_end = characterTotalLevel;
         }
 
+        HITDICEMAX = characterTotalLevel;
+
+        // calculate spell save DC and attack modifier
+        let spellModAbility = character.abilities.filter(a => a.abbr === character.spell_modifier)[0];
+        let spellMod = Utils.calculateAbilityModifier(spellModAbility.value)
+        // TODO: do not rely on mixed-case naming :(
+        let spellSaveDc = 8 + spellMod + character.proficiency;
+        let spellAttackBonus = spellMod + character.proficiency;
+
         // populate character specific values (not stored in/per game)
         CHARACTERNAME.textContent = character.name;
         CHARACTERRACE.textContent = character.race;
@@ -202,8 +216,8 @@ import character from './character.js';
         AC.textContent = character.ac;
         PROFICIENCY.textContent = `+${character.proficiency}`;
         INITIATIVE.textContent = `+${character.initiative}`;
-        SPELLSAVEDC.textContent = character.spell_save_dc;
-        SPELLATTACKBONUS.textContent = `+${character.spell_attack_bonus}`;
+        SPELLSAVEDC.textContent = spellSaveDc;
+        SPELLATTACKBONUS.textContent = `+${spellAttackBonus}`;
 
         // spells
         let spellMarkup = '';
@@ -211,15 +225,21 @@ import character from './character.js';
 
         for (let i = 0; i < character.spells.length; i++) {
             for (let j = 0; j < character.spells[i].list.length; j++) {
-                spellMarkup += generateSpellMarkup(character.spells[i].list[j], `${i}-${j}`);
+                spellMarkup += Utils.generateSpellMarkup(character.spells[i].list[j], `${i}-${j}`);
             }
 
-            spellTypeMarkup = generateSpellTypeMarkup(character.spells[i].type, spellMarkup);
+            spellTypeMarkup = Utils.generateSpellTypeMarkup(character.spells[i].type, spellMarkup);
 
             SPELLSWRAPPER.innerHTML += spellTypeMarkup;
 
             spellMarkup = '';
         }
+
+        // ability scores
+        ABILITYSCORELIST.innerHTML = Utils.generateAbilityScoresMarkup(ABILITIES, character.abilities, character.proficiency);
+
+        // skills
+        SKILLLIST.innerHTML = Utils.generateSkillsMarkup(SKILLS, character);
 
         RANDOMITEMS.innerHTML = character.random_items.map(item => `<li class="random-item">${item}</li>`).join('');
 
@@ -251,93 +271,6 @@ import character from './character.js';
         saveGame(game);
     }
 
-    // helpers
-    function generateSpellSlotMarkup(level, slots) {
-        let markup = `
-            <section class="spell-slots">
-                <span class="label">Level ${level}</span>
-
-                <ol class="spell-slot-list">
-                    ${slots.map((slot, index) => `
-                        <li class="spell-slot">
-                            <input type="checkbox"
-                                   class="spell-slot-checkbox"
-                                   data-level="${level}"
-                                   data-slot="${index + 1}"
-                                   name="spell-slot-level-${level}-${index + 1}"
-                                   id="spell-slot-level-${level}-${index + 1}"
-                                   ${slot ? ' checked' : ''} />
-                        </li>
-                    `).join('')}
-                </ol>
-            </section>
-        `;
-
-        return markup;
-    }
-
-    function generateSpellTypeMarkup(type, spellMarkup) {
-        let markup = `
-            <section class="spell-type-wrapper" id="spell-type-${type}">
-                <span class="label">${type}</span>
-                <ul class="spell-list">${spellMarkup}</ul>
-            </section>
-        `;
-
-        return markup;
-    }
-
-    function generateSpellMarkup(spell, index) {
-        let markup = `
-            <li>
-              <a href="" data-toggler="toggle-spell-${index}">${spell.name}</a> (lvl ${spell.level})
-
-              <article class="hidden toggle-content spell-description" id="toggle-spell-${index}">
-                <em class="em">${spell.school} / ${spell.level}</em>
-
-                <dl>
-                  <dt>Casting Time</dt>
-                  <dd>${spell.casting_time}</dd>
-
-                  <dt>Range</dt>
-                  <dd>${spell.range}</dd>
-
-                  <dt>Components</dt>
-                  <dd>${spell.components}</dd>
-
-                  <dt>Duration</dt>
-                  <dd>${spell.duration}</dd>
-
-                  <dt>Classes</dt>
-                  <dd>${spell.classes}</dd>
-                </dl>
-
-                <p>
-                    ${spell.description.replace(/\r\n/g, '</p><p>')}
-                </p>
-              </article>
-            </li>
-        `;
-
-        return markup;
-    }
-
-    function increment(current, max) {
-        if (current + 1 <= max) {
-            return current + 1;
-        } else {
-            return current;
-        }
-    }
-
-    function decrement(current) {
-        if (current > 0) {
-            return current - 1;
-        } else {
-            return 0;
-        }
-    }
-
     // DOM interactivity
     HPUP.addEventListener('click', () => {
         const NEWHP = parseInt(HP.value, 10) + 1;
@@ -353,7 +286,7 @@ import character from './character.js';
     });
 
     HPDN.addEventListener('click', () => {
-        const NEWHP = decrement(parseInt(HP.value, 10));
+        const NEWHP = Utils.decrement(parseInt(HP.value, 10));
         HP.value = NEWHP;
 
         if (NEWHP <= HPMAX) {
@@ -368,14 +301,14 @@ import character from './character.js';
     });
 
     HITDICEUP.addEventListener('click', () => {
-        const NEWHITDICE = increment(parseInt(HITDICE.value, 10), HITDICEMAX);
+        const NEWHITDICE = Utils.increment(parseInt(HITDICE.value, 10), HITDICEMAX);
         HITDICE.value = NEWHITDICE;
 
         updateGame(thisGame, 'hitdice_end', NEWHITDICE);
     });
 
     HITDICEDN.addEventListener('click', () => {
-        const NEWHITDICE = decrement(parseInt(HITDICE.value, 10));
+        const NEWHITDICE = Utils.decrement(parseInt(HITDICE.value, 10));
         HITDICE.value = NEWHITDICE;
 
         updateGame(thisGame, 'hitdice_end', NEWHITDICE);

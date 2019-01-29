@@ -11,12 +11,51 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 34000,
+    "abilities": [
+        {
+            "abbr": "str",
+            "value": 10,
+            "proficient": true
+        },
+        {
+            "abbr": "dex",
+            "value": 18,
+            "proficient": true
+        },
+        {
+            "abbr": "con",
+            "value": 8
+        },
+        {
+            "abbr": "int",
+            "value": 12
+        },
+        {
+            "abbr": "wis",
+            "value": 16
+        },
+        {
+            "abbr": "cha",
+            "value": 13
+        }
+    ],
+    "skill_proficiencies": {
+        "insight": {},
+        "nature": {
+            "factor": 2
+        },
+        "perception": {},
+        "persuasion": {},
+        "stealth": {},
+        "survival": {
+            "factor": 2
+        }
+    },
+    "experience": 40885,
     "experience_next": 48000,
     "hp": 43,
+    "spell_modifier": "wis",
     "spell_slots": [4, 3],
-    "spell_save_dc": 14,
-    "spell_attack_bonus": 6,
     "ac": 17,
     "initiative": 4,
     "proficiency": 3,
@@ -38,11 +77,6 @@ const character = {
             "bonus": 7,
             "damage": "1d6+4",
             "type": "piercing"
-        }
-    ],
-    cantrips: [
-        {
-
         }
     ],
     spells: [
@@ -239,7 +273,7 @@ const character = {
                     "components": "V",
                     "duration": "Up to 1 minute",
                     "classes": "Cleric",
-                    "description": "You manifest a minor wonder, a sign of supernatural power, within range.You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or win- dow to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
+                    "description": "You manifest a minor wonder, a sign of supernatural power, within range.You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
                 }
             ]
         },
@@ -256,6 +290,28 @@ const character = {
                     "duration": "24 hours",
                     "classes": "Bard, Druid, Ranger",
                     "description": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spells ends.\r\n** SNAKES ONLY **"
+                },
+                {
+                    "name": "Flame Shield",
+                    "level": 4,
+                    "school": "Evocatioin",
+                    "casting_time": "1 action",
+                    "range": "self",
+                    "components": "V S M",
+                    "duration": "10 minutes",
+                    "classes": "Wizard",
+                    "description": "Thin and wispy flames wreathe your body for the duration, shedding bright light in a 10-foot radius and dim light for an additional 10 feet. You can end the spell early by using an action to dismiss it.\r\nThe flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you resistance to cold damage, and the chill shield grants you resistance to fire damage.\r\nIn addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame. The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a cold shield."
+                },
+                {
+                    "name": "Locate Creature",
+                    "level": 4,
+                    "school": "Divination",
+                    "casting_time": "1 action",
+                    "range": "self",
+                    "components": "V S M",
+                    "duration": "Concentration, up to 1 hour",
+                    "classes": "Bard, Cleric, Druid, Paladin, Ranger, Wizard",
+                    "description": "Describe or name a creature that is familiar to you. You sense the direction to the creature's location, as long as that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.\r\nThe spell can locate a specific creature known to you, or the nearest creature of a specific kind (such as a human or a unicorn), so long as you have seen such a creature up close—within 30 feet—at least once. If the creature you described or named is in a different form, such as being under the effects of a polymorph spell, this spell doesn't locate the creature.\r\nThis spell can't locate a creature if running water at least 10 feet wide blocks a direct path between you and the creature."
                 },
                 {
                     "name": "Poison Spray",
@@ -278,6 +334,17 @@ const character = {
                     "duration": "Concentration, up to 10 minutes",
                     "classes": "Bard, Cleric, Ranger",
                     "description": "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there."
+                },
+                {
+                    "name": "Speak With Dead",
+                    "level": 3,
+                    "school": "Necromancy",
+                    "casting_time": "1 action",
+                    "range": "10 feet",
+                    "components": "V S M",
+                    "duration": "10 minutes",
+                    "classes": "Bard, Cleric",
+                    "description": "You grant the semblance of life and intelligence to a corpse of your choice within range, allowing it to answer the questions you pose. The corpse must still have a mouth and can't be undead. The spell fails if the corpse was the target of this spell within the last 10 days.\r\nUntil the spell ends, you can ask the corpse up to five questions. The corpse knows only what it knew in life, including the languages it knew. Answers are usually brief, cryptic, or repetitive, and the corpse is under no compulsion to offer a truthful answer if you are hostile to it or it recognizes you as an enemy. This spell doesn't return the creature's soul to its body, only its animating spirit. Thus, the corpse can't learn new information, doesn't comprehend anything that has happened since it died, and can't speculate about future events."
                 },
                 {
                     "name": "Suggestion",
