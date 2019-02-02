@@ -230,4 +230,12 @@ Utils.generateSpellMarkup = function(spell, index) {
     return markup;
 };
 
+/**
+ * This needs to return an object containing the character total level (integer) and
+ * the string representation of the character's classes, e.g. 'Bard 4 / Ranger 2'
+ */
+Utils.generateCharacterClassLevelText = function(classes) {
+
+};
+
 export default Utils;

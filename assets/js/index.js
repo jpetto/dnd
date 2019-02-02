@@ -1,19 +1,15 @@
-import { ABILITIES, SKILLS } from './constants.js';
+import CONFIG from './constants.js';
+import Game from './game.js';
 import Utils from './utils.js';
 import character from './character.js';
 
 (function() {
     'use strict';
 
-    const LOCALSTORAGEGAMEKEY = 'game';
-    const LOCALSTORAGEPREVIOUSGAMEKEY = 'previous-game';
-
     const CHARACTERNAME = document.getElementById('character-name');
     const CHARACTERRACE = document.getElementById('character-race');
     const CHARACTERCLASSLEVEL = document.getElementById('character-class-level');
     const CHARACTERXP = document.getElementById('character-xp');
-    let characterTotalLevel = 0;
-    let characterClassLevelText = '';
 
     const HP = document.getElementById('hp');
     const HPUP = document.getElementById('hp-up');
@@ -23,7 +19,6 @@ import character from './character.js';
     const HITDICE = document.getElementById('hit-dice');
     const HITDICEUP = document.getElementById('hit-dice-up');
     const HITDICEDN = document.getElementById('hit-dice-dn');
-    let HITDICEMAX; // calculate later based on character total level
 
     const ABILITYSCORELIST = document.getElementById('ability-score-list');
     const SKILLLIST = document.getElementById('skill-list');
@@ -55,46 +50,9 @@ import character from './character.js';
     let Togglers;
     let TogglerContents;
 
-    const DEATHSAVESDEFAULT = [null, null, null];
-
-    const GAMETEMPLATE = {
-        "id": null,
-        "date": new Date(),
-        "goal": null,
-        "hp_start": character.hp,
-        "hp_end": character.hp,
-        "hitdice_start": 0,
-        "hitdice_end": 0,
-        "death_saves": DEATHSAVESDEFAULT,
-        "xp_earned": null,
-        "spell_slots_start": [],
-        "spell_slots_end": [],
-        "notes": "",
-        "pp": 0,
-        "gp": 0,
-        "sp": 0,
-        "bp": 0,
-        "items": [],
-        "players": []
-    }
-
-    let previousGame; // stores previous game (if one is found in localStorage)
-
-    // populate spell slots in game template
-    for (let i = 0; i < character.spell_slots.length; i++) {
-        GAMETEMPLATE.spell_slots_start.push([]);
-
-        for (let j = 0; j < character.spell_slots[i]; j++) {
-            // assume all spels are unused at the start - hence 'false'
-            GAMETEMPLATE.spell_slots_start[i].push(false);
-        }
-    }
-
-    // ending spell slots default to all unused
-    GAMETEMPLATE.spell_slots_end = GAMETEMPLATE.spell_slots_start;
-
-    let thisGame;
-
+    /**
+     * Generic, but basically just means spell description togglers.
+     */
     function initTogglers() {
         Togglers = document.querySelectorAll('a[data-toggler]');
         TogglerContents = document.querySelectorAll('.toggle-content');
@@ -116,108 +74,13 @@ import character from './character.js';
         });
     }
 
-    function initGame(game) {
-        // set hit points & hit dice
-        HP.value = game.hp_end;
-        HITDICE.value = game.hitdice_end;
-
-        if (game.hp_end > game.hp_start) {
-            HP.classList.add('juiced');
-        }
-
-        // set death saves
-        for (let i = 1; i < 4; i++) {
-            // if a save is logged, render its punk ass
-            if (game.death_saves[i - 1] !== null) {
-                const THESAVE = document.getElementById(`death-save-${i}-${game.death_saves[i - 1] === true ? 'success' : 'failure'}`);
-                THESAVE.checked = true;
-            }
-        }
-
-        // set spell slots used
-        let spellSlotMarkup = '';
-
-        for (let i = 0; i < game.spell_slots_end.length; i++) {
-            spellSlotMarkup += Utils.generateSpellSlotMarkup(i + 1, game.spell_slots_end[i]);
-        }
-
-        SPELLSLOTSWRAPPER.innerHTML = spellSlotMarkup;
-
-        // set money
-        PP.value = game.pp;
-        GP.value = game.gp;
-        SP.value = game.sp;
-        BP.value = game.bp;
-
-        // set notes
-        NOTES.value = game.notes;
-
-        // copy template to a new object & save game to localStorage
-        thisGame = Object.assign({}, game);
-
-        localStorage.setItem(LOCALSTORAGEGAMEKEY, JSON.stringify(thisGame));
-    }
-
-    // Check localStorage for a game that was started today.
-    // If it exists, use data stored there.
-    // Otherwise, use defaults from character.js.
-    function buildGame(character, basegame) {
-        // calculate level (for hit dice) and set class/level text
-        let classLevelBuilder = [];
-
-        for (let i = 0; i < character.classes.length; i++) {
-            characterTotalLevel += character.classes[i].level;
-            classLevelBuilder.push(`${character.classes[i].type} ${character.classes[i].level}`);
-        }
-
-        characterClassLevelText = classLevelBuilder.join(' / ');
-
-        let game = localStorage.getItem('game');
-
-        // if we have a game, check the date
-        if (game) {
-            game = JSON.parse(game);
-
-            // make sure game is from today
-            var saveDate = new Date(game.date);
-            var today = new Date();
-
-            // if game is not from today, save old game and start a new one
-            if (saveDate.setHours(0, 0, 0, 0) !== today.setHours(0, 0, 0, 0)) {
-                // save previous game in case we want to export it
-                // TODO: send this to an API for long-term storage
-                previousGame = game;
-                localStorage.setItem(LOCALSTORAGEPREVIOUSGAMEKEY, JSON.stringify(game));
-
-                // start a new game
-                game = basegame;
-            }
-        // if no game is found in localStorage, start a new game
-        } else {
-            game = basegame;
-
-            game.hitdice_start = game.hitdice_end = characterTotalLevel;
-        }
-
-        HITDICEMAX = characterTotalLevel;
-
+    function hydrateSession(session, character) {
         // calculate spell save DC and attack modifier
         let spellModAbility = character.abilities.filter(a => a.abbr === character.spell_modifier)[0];
         let spellMod = Utils.calculateAbilityModifier(spellModAbility.value)
         // TODO: do not rely on mixed-case naming :(
         let spellSaveDc = 8 + spellMod + character.proficiency;
         let spellAttackBonus = spellMod + character.proficiency;
-
-        // populate character specific values (not stored in/per game)
-        CHARACTERNAME.textContent = character.name;
-        CHARACTERRACE.textContent = character.race;
-        CHARACTERXP.textContent = `${character.experience} / ${character.experience_next}`;
-        CHARACTERCLASSLEVEL.textContent = characterClassLevelText;
-        AC.textContent = character.ac;
-        PROFICIENCY.textContent = `+${character.proficiency}`;
-        INITIATIVE.textContent = `+${character.initiative}`;
-        SPELLSAVEDC.textContent = spellSaveDc;
-        SPELLATTACKBONUS.textContent = `+${spellAttackBonus}`;
 
         // spells
         let spellMarkup = '';
@@ -235,40 +98,62 @@ import character from './character.js';
             spellMarkup = '';
         }
 
+        // populate character specific values (not stored in/per game)
+        CHARACTERNAME.textContent = character.name;
+        CHARACTERRACE.textContent = character.race;
+        CHARACTERXP.textContent = `${character.experience} / ${character.experience_next}`;
+        CHARACTERCLASSLEVEL.textContent = session.class;
+        AC.textContent = character.ac;
+        PROFICIENCY.textContent = `+${character.proficiency}`;
+        INITIATIVE.textContent = `+${character.initiative}`;
+        SPELLSAVEDC.textContent = spellSaveDc;
+        SPELLATTACKBONUS.textContent = `+${spellAttackBonus}`;
+
         // ability scores
-        ABILITYSCORELIST.innerHTML = Utils.generateAbilityScoresMarkup(ABILITIES, character.abilities, character.proficiency);
+        ABILITYSCORELIST.innerHTML = Utils.generateAbilityScoresMarkup(CONFIG.abilities, character.abilities, character.proficiency);
 
         // skills
-        SKILLLIST.innerHTML = Utils.generateSkillsMarkup(SKILLS, character);
+        SKILLLIST.innerHTML = Utils.generateSkillsMarkup(CONFIG.skills, character);
 
         RANDOMITEMS.innerHTML = character.random_items.map(item => `<li class="random-item">${item}</li>`).join('');
 
+        // set up spell description togglers
         initTogglers();
 
-        return game;
-    }
+        // set hit points & hit dice
+        HP.value = session.hp_end;
+        HITDICE.value = session.hitdice_end;
 
-    // game object interaction
-    function saveGame(game) {
-        localStorage.setItem(LOCALSTORAGEGAMEKEY, JSON.stringify(game));
-
-        // TODO: hit external API
-    }
-
-    function updateGame(game, key, val) {
-        if (game.hasOwnProperty(key)) {
-            game[key] = val;
-
-            saveGame(game);
-        } else {
-            console.log(`No property named ${key}!`);
+        if (session.hp_end > session.hp_start) {
+            HP.classList.add('juiced');
         }
-    }
 
-    function updateGameSpellSlot(game, level, slot, value) {
-        game.spell_slots_end[level - 1][slot - 1] = value;
+        // set death saves
+        for (let i = 1; i < 4; i++) {
+            // if a save is logged, render its punk ass
+            if (session.death_saves[i - 1] !== null) {
+                const THESAVE = document.getElementById(`death-save-${i}-${session.death_saves[i - 1] === true ? 'success' : 'failure'}`);
+                THESAVE.checked = true;
+            }
+        }
 
-        saveGame(game);
+        // set spell slots used
+        let spellSlotMarkup = '';
+
+        for (let i = 0; i < session.spell_slots_end.length; i++) {
+            spellSlotMarkup += Utils.generateSpellSlotMarkup(i + 1, session.spell_slots_end[i]);
+        }
+
+        SPELLSLOTSWRAPPER.innerHTML = spellSlotMarkup;
+
+        // set money
+        PP.value = session.pp;
+        GP.value = session.gp;
+        SP.value = session.sp;
+        BP.value = session.bp;
+
+        // set notes
+        NOTES.value = session.notes;
     }
 
     // DOM interactivity
@@ -282,7 +167,7 @@ import character from './character.js';
             HP.classList.remove('dead');
         }
 
-        updateGame(thisGame, 'hp_end', NEWHP);
+        Game.update(Game.currentSession, 'hp_end', NEWHP);
     });
 
     HPDN.addEventListener('click', () => {
@@ -297,21 +182,21 @@ import character from './character.js';
             }
         }
 
-        updateGame(thisGame, 'hp_end', NEWHP);
+        Game.update(Game.currentSession, 'hp_end', NEWHP);
     });
 
     HITDICEUP.addEventListener('click', () => {
-        const NEWHITDICE = Utils.increment(parseInt(HITDICE.value, 10), HITDICEMAX);
+        const NEWHITDICE = Utils.increment(parseInt(HITDICE.value, 10), Game.currentSession.level);
         HITDICE.value = NEWHITDICE;
 
-        updateGame(thisGame, 'hitdice_end', NEWHITDICE);
+        Game.update(Game.currentSession, 'hitdice_end', NEWHITDICE);
     });
 
     HITDICEDN.addEventListener('click', () => {
         const NEWHITDICE = Utils.decrement(parseInt(HITDICE.value, 10));
         HITDICE.value = NEWHITDICE;
 
-        updateGame(thisGame, 'hitdice_end', NEWHITDICE);
+        Game.update(Game.currentSession, 'hitdice_end', NEWHITDICE);
     });
 
     DEATHSAVESTABLE.addEventListener('click', e => {
@@ -319,7 +204,7 @@ import character from './character.js';
             const SAVENUMBER = parseInt(e.target.dataset.deathSaveNumber, 10);
             const SUCCESS = (e.target.id.indexOf('success') >= 0) ? true : false;
 
-            let saves = thisGame.death_saves;
+            let saves = Game.currentSession.death_saves;
 
             // make sure each save has some value - even if it's null
             for (let i = 1; i < 4; i++) {
@@ -330,7 +215,7 @@ import character from './character.js';
                 }
             }
 
-            updateGame(thisGame, 'death_saves', saves);
+            Game.update(Game.currentSession, 'death_saves', saves);
         }
     });
 
@@ -339,42 +224,40 @@ import character from './character.js';
             radio.checked = false;
         });
 
-        updateGame(thisGame, 'death_saves', DEATHSAVESDEFAULT);
+        Game.update(Game.currentSession, 'death_saves', CONFIG.deathSavesDefault);
     });
 
     SPELLSLOTSWRAPPER.addEventListener('click', e => {
         if (e.target.classList.contains('spell-slot-checkbox')) {
             const LEVEL = e.target.dataset.level;
             const SLOT = e.target.dataset.slot;
-            updateGameSpellSlot(thisGame, LEVEL, SLOT, e.target.checked);
+            Game.updateSpellSlot(Game.currentSession, LEVEL, SLOT, e.target.checked);
         }
     });
 
     MONEYINPUTS.forEach(input => {
         input.addEventListener('change', () => {
-            updateGame(thisGame, input.id, parseInt(input.value, 10));
+            Game.update(Game.currentSession, input.id, parseInt(input.value, 10));
         });
     });
 
     NOTES.addEventListener('change', () => {
-        updateGame(thisGame, 'notes', NOTES.value);
+        Game.update(Game.currentSession, 'notes', NOTES.value);
     });
 
     // get a game object
-    thisGame = buildGame(character, GAMETEMPLATE);
-
-    // initialize the game
-    initGame(thisGame);
+    Game.init(character);
+    hydrateSession(Game.currentSession, character);
 
     const DEBUG = document.getElementById('debug');
     const PRINTDEBUG = document.getElementById('print-debug');
     const PRINTDEBUGPREVIOUS = document.getElementById('print-debug-previous');
 
     PRINTDEBUG.addEventListener('click', () => {
-        DEBUG.value = JSON.stringify(thisGame);
+        DEBUG.value = JSON.stringify(Game.currentSession);
     });
 
     PRINTDEBUGPREVIOUS.addEventListener('click', () => {
-        DEBUG.value = JSON.stringify(previousGame);
+        DEBUG.value = JSON.stringify(Game.previousSession);
     });
 })();

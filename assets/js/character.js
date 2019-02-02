@@ -376,7 +376,8 @@ const character = {
         "colorful giant parrot feather",
         "woven mats (from drow guardian spider's chest)",
         "elven casino dice",
-        "2 vials of drow arrow poison"
+        "2 vials of drow arrow poison",
+        "fortified ancient wine (from gorilla club)"
     ]
 };
 
