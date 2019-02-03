@@ -51,7 +51,7 @@ const character = {
             "factor": 2
         }
     },
-    "experience": 40885,
+    "experience": 44925,
     "experience_next": 48000,
     "hp": 43,
     "spell_modifier": "wis",

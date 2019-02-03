@@ -74,11 +74,19 @@ import character from './character.js';
         });
     }
 
+    /**
+     * Populates all DOM elements based on the provided session and character
+     *
+     * @param {Object} session - data generated from Game.init
+     * @param {Object} character - character data from character.js
+     */
     function hydrateSession(session, character) {
         // calculate spell save DC and attack modifier
+
+        // gets the ability of the character's spell modifier ability, e.g. INT, WIS
         let spellModAbility = character.abilities.filter(a => a.abbr === character.spell_modifier)[0];
+        // calclulate the modifier
         let spellMod = Utils.calculateAbilityModifier(spellModAbility.value)
-        // TODO: do not rely on mixed-case naming :(
         let spellSaveDc = 8 + spellMod + character.proficiency;
         let spellAttackBonus = spellMod + character.proficiency;
 
@@ -98,7 +106,6 @@ import character from './character.js';
             spellMarkup = '';
         }
 
-        // populate character specific values (not stored in/per game)
         CHARACTERNAME.textContent = character.name;
         CHARACTERRACE.textContent = character.race;
         CHARACTERXP.textContent = `${character.experience} / ${character.experience_next}`;
@@ -124,6 +131,7 @@ import character from './character.js';
         HP.value = session.hp_end;
         HITDICE.value = session.hitdice_end;
 
+        // update UI of HP box if character has temp hit points
         if (session.hp_end > session.hp_start) {
             HP.classList.add('juiced');
         }
@@ -245,8 +253,10 @@ import character from './character.js';
         Game.update(Game.currentSession, 'notes', NOTES.value);
     });
 
-    // get a game object
+    // get a game object (either new or saved in localStorage)
     Game.init(character);
+
+    // populate the DOM
     hydrateSession(Game.currentSession, character);
 
     const DEBUG = document.getElementById('debug');
