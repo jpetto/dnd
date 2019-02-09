@@ -115,6 +115,20 @@ Game.save = session => {
     localStorage.setItem(CONFIG.localStorageKeySession, JSON.stringify(session));
 
     // TODO: hit external API
+};
+
+Game.clear = () => {
+    localStorage.removeItem(CONFIG.localStorageKeySession);
+};
+
+Game.load = sessionJson => {
+    // parse JSON and set date to today
+    const json = JSON.parse(sessionJson);
+    json.date = new Date();
+
+    Game.currentSession = json;
+
+    Game.save(Game.currentSession);
 }
 
 export default Game;

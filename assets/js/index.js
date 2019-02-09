@@ -262,6 +262,8 @@ import character from './character.js';
     const DEBUG = document.getElementById('debug');
     const PRINTDEBUG = document.getElementById('print-debug');
     const PRINTDEBUGPREVIOUS = document.getElementById('print-debug-previous');
+    const LOADSESSION = document.getElementById('load-session');
+    const CLEARSESSION = document.getElementById('clear-session');
 
     PRINTDEBUG.addEventListener('click', () => {
         DEBUG.value = JSON.stringify(Game.currentSession);
@@ -269,5 +271,17 @@ import character from './character.js';
 
     PRINTDEBUGPREVIOUS.addEventListener('click', () => {
         DEBUG.value = JSON.stringify(Game.previousSession);
+    });
+
+    LOADSESSION.addEventListener('click', () => {
+        // we're just going to trust this value is in the right format
+        if (DEBUG.value !== '') {
+            Game.load(DEBUG.value);
+            hydrateSession(Game.currentSession, character);
+        }
+    });
+
+    CLEARSESSION.addEventListener('click', () => {
+        Game.clear();
     });
 })();
