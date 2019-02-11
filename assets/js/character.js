@@ -7,7 +7,7 @@ const character = {
         },
         {
             "type": "Cleric",
-            "level": 1
+            "level": 2
         }
     ],
     "race": "Wood Elf",
@@ -51,24 +51,24 @@ const character = {
             "factor": 2
         }
     },
-    "experience": 44925,
-    "experience_next": 48000,
-    "hp": 43,
+    "experience": 48260,
+    "experience_next": 64000,
+    "hp": 47,
     "spell_modifier": "wis",
-    "spell_slots": [4, 3],
+    "spell_slots": [4, 3, 2],
     "ac": 17,
     "initiative": 4,
-    "proficiency": 3,
+    "proficiency": 4,
     "attacks": [
         {
             "name": "Deadeye Arcus",
-            "bonus": 10,
+            "bonus": 11,
             "damage": "1d8+5",
             "type": "piercing"
         },
         {
             "name": "Old Jack's Scimitar",
-            "bonus": 8,
+            "bonus": 9,
             "damage": "1d6+5",
             "type": "slashing"
         }
@@ -235,6 +235,17 @@ const character = {
                     "duration": "Concentration, up to 8 hours",
                     "classes": "Bard, Cleric, Druid",
                     "description": "You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence.\r\nWhen the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you.\r\nIf you don’t move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes."
+                },
+                {
+                    "name": "Healing Word",
+                    "level": 1,
+                    "school": "Evocation",
+                    "casting_time": "1 bonus action",
+                    "range": "60 feet",
+                    "components": "V",
+                    "duration": "Instantaneous",
+                    "classes": "Bard, Cleric, Druid",
+                    "description": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, the Healing increases by 1d4 for each slot level above 1st."
                 },
                 {
                     "name": "Shield of Faith",

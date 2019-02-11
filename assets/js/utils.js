@@ -56,6 +56,16 @@ Utils.calculateAbilityModifier = function(val) {
     return mod;
 };
 
+Utils.generateAttackMarkup = function(name, bonus, damage, type) {
+    return `
+        <tr>
+            <td>${name}</td>
+            <td>+${bonus}</td>
+            <td>${damage}/${type}</td>
+          </tr>
+    `;
+}
+
 Utils.generateSkillMarkup = function(skill, ability_abbr, modifier, proficient, proficiency, proficiency_factor) {
     let proficient_class = 'value';
 
@@ -83,27 +93,23 @@ Utils.generateSkillMarkup = function(skill, ability_abbr, modifier, proficient, 
 };
 
 Utils.generateSkillsMarkup = function(skills, character) {
-    let ability_abbr;
     let ability_val;
     let markup = ``;
     let modifier;
     let proficient;
     let proficiency_factor;
-    let skill;
 
-    for (let i = 0; i < skills.length; i++) {
-        skill = skills[i].name;
-        ability_abbr = skills[i].ability;
-        ability_val = character.abilities.filter(a => a.abbr === ability_abbr)[0].value;
+    skills.forEach(skill => {
+        ability_val = character.abilities.filter(a => a.abbr === skill.ability)[0].value;
         modifier = Utils.calculateAbilityModifier(ability_val);
 
         // this is ugly
-        if (character.skill_proficiencies.hasOwnProperty(skill.toLowerCase())) {
+        if (character.skill_proficiencies.hasOwnProperty(skill.name.toLowerCase())) {
             proficient = true;
 
             // also ugly
-            if (character.skill_proficiencies[skill.toLowerCase()].hasOwnProperty('factor')) {
-                proficiency_factor = character.skill_proficiencies[skill.toLowerCase()].factor;
+            if (character.skill_proficiencies[skill.name.toLowerCase()].hasOwnProperty('factor')) {
+                proficiency_factor = character.skill_proficiencies[skill.name.toLowerCase()].factor;
             } else {
                 proficiency_factor = 1;
             }
@@ -112,8 +118,8 @@ Utils.generateSkillsMarkup = function(skills, character) {
             proficiency_factor = 1;
         }
 
-        markup += Utils.generateSkillMarkup(skill, ability_abbr, modifier, proficient, character.proficiency, proficiency_factor);
-    }
+        markup += Utils.generateSkillMarkup(skill.name, skill.ability, modifier, proficient, character.proficiency, proficiency_factor);
+    });
 
     return markup;
 };

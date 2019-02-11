@@ -20,6 +20,8 @@ import character from './character.js';
     const HITDICEUP = document.getElementById('hit-dice-up');
     const HITDICEDN = document.getElementById('hit-dice-dn');
 
+    const ATTACKSTABLEBODY = document.getElementById('attacks-table-body');
+
     const ABILITYSCORELIST = document.getElementById('ability-score-list');
     const SKILLLIST = document.getElementById('skill-list');
 
@@ -81,6 +83,13 @@ import character from './character.js';
      * @param {Object} character - character data from character.js
      */
     function hydrateSession(session, character) {
+        let i;
+        let j;
+
+        character.attacks.forEach(attack => {
+            ATTACKSTABLEBODY.innerHTML += Utils.generateAttackMarkup(attack.name, attack.bonus, attack.damage, attack.type);
+        });
+
         // calculate spell save DC and attack modifier
 
         // gets the ability of the character's spell modifier ability, e.g. INT, WIS
@@ -94,8 +103,8 @@ import character from './character.js';
         let spellMarkup = '';
         let spellTypeMarkup;
 
-        for (let i = 0; i < character.spells.length; i++) {
-            for (let j = 0; j < character.spells[i].list.length; j++) {
+        for (i = 0; i < character.spells.length; i++) {
+            for (j = 0; j < character.spells[i].list.length; j++) {
                 spellMarkup += Utils.generateSpellMarkup(character.spells[i].list[j], `${i}-${j}`);
             }
 
@@ -137,7 +146,7 @@ import character from './character.js';
         }
 
         // set death saves
-        for (let i = 1; i < 4; i++) {
+        for (i = 1; i < 4; i++) {
             // if a save is logged, render its punk ass
             if (session.death_saves[i - 1] !== null) {
                 const THESAVE = document.getElementById(`death-save-${i}-${session.death_saves[i - 1] === true ? 'success' : 'failure'}`);
@@ -148,7 +157,7 @@ import character from './character.js';
         // set spell slots used
         let spellSlotMarkup = '';
 
-        for (let i = 0; i < session.spell_slots_end.length; i++) {
+        for (i = 0; i < session.spell_slots_end.length; i++) {
             spellSlotMarkup += Utils.generateSpellSlotMarkup(i + 1, session.spell_slots_end[i]);
         }
 
