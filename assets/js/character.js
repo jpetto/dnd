@@ -71,12 +71,6 @@ const character = {
             "bonus": 8,
             "damage": "1d6+5",
             "type": "slashing"
-        },
-        {
-            "name": "Short Sword",
-            "bonus": 7,
-            "damage": "1d6+4",
-            "type": "piercing"
         }
     ],
     spells: [
@@ -273,7 +267,7 @@ const character = {
                     "components": "V",
                     "duration": "Up to 1 minute",
                     "classes": "Cleric",
-                    "description": "You manifest a minor wonder, a sign of supernatural power, within range.You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
+                    "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
                 }
             ]
         },
@@ -325,17 +319,6 @@ const character = {
                     "description": "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage."
                 },
                 {
-                    "name": "Silence",
-                    "level": 2,
-                    "school": "Illusion",
-                    "casting_time": "1 action",
-                    "range": "120 feet",
-                    "components": "V S",
-                    "duration": "Concentration, up to 10 minutes",
-                    "classes": "Bard, Cleric, Ranger",
-                    "description": "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there."
-                },
-                {
                     "name": "Speak With Dead",
                     "level": 3,
                     "school": "Necromancy",
@@ -372,7 +355,6 @@ const character = {
         "piece of alien crab shell",
         "dried meat",
         "petrified songbird",
-        "beetle goo",
         "colorful giant parrot feather",
         "woven mats (from drow guardian spider's chest)",
         "elven casino dice",
