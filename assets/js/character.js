@@ -11,6 +11,14 @@ const character = {
         }
     ],
     "race": "Wood Elf",
+    "experience": 56895,
+    "experience_next": 64000,
+    "hp": 47,
+    "spell_modifier": "wis",
+    "spell_slots": [4, 3, 2],
+    "ac": 17,
+    "initiative": 4,
+    "proficiency": 4,
     "abilities": [
         {
             "abbr": "str",
@@ -51,14 +59,6 @@ const character = {
             "factor": 2
         }
     },
-    "experience": 48260,
-    "experience_next": 64000,
-    "hp": 47,
-    "spell_modifier": "wis",
-    "spell_slots": [4, 3, 2],
-    "ac": 17,
-    "initiative": 4,
-    "proficiency": 4,
     "attacks": [
         {
             "name": "Deadeye Arcus",
@@ -370,7 +370,9 @@ const character = {
         "woven mats (from drow guardian spider's chest)",
         "elven casino dice",
         "2 vials of drow arrow poison",
-        "fortified ancient wine (from gorilla club)"
+        "fortified ancient wine (from gorilla club)",
+        "wood, feathers, and crystal from the reddish purple forest (for making arrows)",
+        "1 crude arrow from reddish purple forest materials"
     ]
 };
 
