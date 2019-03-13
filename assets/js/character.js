@@ -10,7 +10,7 @@ const character = {
             "level": 2
         }
     ],
-    "race": "Wood Elf!",
+    "race": "Wood Elf",
     "experience": 56895,
     "experience_next": 64000,
     "hp": 47,
