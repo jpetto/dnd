@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 7
+            "level": 8
         },
         {
             "type": "Cleric",
@@ -11,11 +11,11 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 56895,
-    "experience_next": 64000,
-    "hp": 47,
+    "experience": 64000,
+    "experience_next": 85000,
+    "hp": 52,
     "spell_modifier": "wis",
-    "spell_slots": [4, 3, 2],
+    "spell_slots": [4, 3, 3],
     "ac": 17,
     "initiative": 4,
     "proficiency": 4,
@@ -370,9 +370,11 @@ const character = {
         "woven mats (from drow guardian spider's chest)",
         "elven casino dice",
         "2 vials of drow arrow poison",
-        "fortified ancient wine (from gorilla club)",
         "wood, feathers, and crystal from the reddish purple forest (for making arrows)",
-        "1 crude arrow from reddish purple forest materials"
+        "1 crude arrow from reddish purple forest materials",
+        "15 proper arrows from reddish purple forest materials",
+        "white cleaning powder from elvish library",
+        "stationery from elvish library"
     ]
 };
 
