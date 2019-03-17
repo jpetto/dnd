@@ -89,17 +89,6 @@ const character = {
                     "description": "When hit with acid, cold, fire, lightning, or thunder damage, you can use your reaction to have resistance to it until the start of your next turn, including against the triggering attack. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 of the damage type."
                 },
                 {
-                    "name": "Cure Wounds",
-                    "level": 1,
-                    "school": "Evocation",
-                    "casting_time": "1 action",
-                    "range": "touch",
-                    "components": "V S",
-                    "duration": "Instantaneous",
-                    "classes": "Bard, Cleric, Druid, Paladin, Ranger",
-                    "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, the Healing increases by 1d8 for each slot level above 1st."
-                },
-                {
                     "name": "Ensnaring Strike",
                     "level": 1,
                     "school": "Conjuration",
@@ -120,6 +109,17 @@ const character = {
                     "duration": "Up to 8 hours (Current turn)",
                     "classes": "Bard, Cleric, Sorcerer, Warlock, Wizard",
                     "description": "You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can’t see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren’t on the Ethereal Plane can’t perceive you and can’t interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren’t on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn’t border it, such as one of the Outer Planes.\r\nAs a bonus action, you can cast this spell without expending a spell slot, but the spell ends at the end of your current turn. Once you use this feature, you can’t use it again until you finish a short or long rest."
+                },
+                {
+                    "name": "Hunter's Mark",
+                    "level": 1,
+                    "school": "Divination",
+                    "casting_time": "1 bonus action",
+                    "range": "90 feet",
+                    "components": "V",
+                    "duration": "Concentration, up to 1 hour",
+                    "classes": "Ranger",
+                    "description": "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.\r\nWhen you cast this spell using a spell slot of 3rd or 4th level, you can maintain your Concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentr⁠ation on the spell for up to 24 hours."
                 },
                 {
                     "name": "Misty Step",
@@ -171,17 +171,6 @@ const character = {
             "type": "Cleric",
             "list": [
                 {
-                    "name": "Bless",
-                    "level": 1,
-                    "school": "Enchantment",
-                    "casting_time": "1 action",
-                    "range": "30 feet",
-                    "components": "V S M",
-                    "duration": "Concentration, up to 1 minute",
-                    "classes": "Cleric, Paladin",
-                    "description": "You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll 1d4 and add the number rolled to the attack roll or saving throw.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st."
-                },
-                {
                     "name": "Create or Destroy Water",
                     "level": 1,
                     "school": "Transmutation",
@@ -191,6 +180,17 @@ const character = {
                     "duration": "Instantaneous",
                     "classes": "Cleric, Druid",
                     "description": "You either create or destroy water. Create Water. You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot cube within range, extinguishing exposed flames in the area. Destroy Water. You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot cube within range.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, you create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet, for each slot level above 1st."
+                },
+                {
+                    "name": "Cure Wounds",
+                    "level": 1,
+                    "school": "Evocation",
+                    "casting_time": "1 action",
+                    "range": "touch",
+                    "components": "V S",
+                    "duration": "Instantaneous",
+                    "classes": "Bard, Cleric, Druid, Paladin, Ranger",
+                    "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, the Healing increases by 1d8 for each slot level above 1st."
                 },
                 {
                     "name": "False Life",
