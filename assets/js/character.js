@@ -11,12 +11,12 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 64850,
+    "experience": 72000,
     "experience_next": 85000,
     "hp": 52,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3],
-    "ac": 17,
+    "ac": 18,
     "initiative": 4,
     "proficiency": 4,
     "abilities": [
@@ -70,6 +70,12 @@ const character = {
             "name": "Old Jack's Scimitar",
             "bonus": 9,
             "damage": "1d6+5",
+            "type": "slashing"
+        },
+        {
+            "name": "Short sword",
+            "bonus": 8,
+            "damage": "1d6+4",
             "type": "slashing"
         }
     ],
