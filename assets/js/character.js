@@ -11,7 +11,7 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 72000,
+    "experience": 78300,
     "experience_next": 85000,
     "hp": 52,
     "spell_modifier": "wis",
@@ -376,11 +376,12 @@ const character = {
         "woven mats (from drow guardian spider's chest)",
         "elven casino dice",
         "2 vials of drow arrow poison",
-        "wood, feathers, and crystal from the reddish purple forest (for making arrows)",
         "1 crude arrow from reddish purple forest materials",
         "15 proper arrows from reddish purple forest materials",
         "white cleaning powder from elvish library",
-        "stationery from elvish library"
+        "stationery from elvish library",
+        "wood from toby's ship (to make an arrow?)",
+        "insect filled fruit from toby's ship's garden"
     ]
 };
 
