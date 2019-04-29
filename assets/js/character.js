@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 8
+            "level": 9
         },
         {
             "type": "Cleric",
@@ -11,9 +11,9 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 79575,
-    "experience_next": 85000,
-    "hp": 52,
+    "experience": 91295,
+    "experience_next": 100000,
+    "hp": 57,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3],
     "ac": 18,
@@ -98,7 +98,7 @@ const character = {
                     "name": "Ensnaring Strike",
                     "level": 1,
                     "school": "Conjuration",
-                    "casting_time": "1 action (bonus action)",
+                    "casting_time": "1 bonus action",
                     "range": "self",
                     "components": "V",
                     "duration": "Concentration, up to 1 minute",
@@ -117,6 +117,17 @@ const character = {
                     "description": "You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can’t see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren’t on the Ethereal Plane can’t perceive you and can’t interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren’t on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn’t border it, such as one of the Outer Planes.\r\nAs a bonus action, you can cast this spell without expending a spell slot, but the spell ends at the end of your current turn. Once you use this feature, you can’t use it again until you finish a short or long rest."
                 },
                 {
+                    "name": "Haste",
+                    "level": 3,
+                    "school": "Transmutation",
+                    "casting_time": "1 action",
+                    "range": "30 feet",
+                    "components": "V S M",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Sorceror, Wizard",
+                    "description": "Choose a willing creature that you can see within range. Until the spell ends, the target’s speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.\r\nWhen the spell ends, the target can’t move or take actions until after its next turn, as a wave of lethargy sweeps over it."
+                },
+                {
                     "name": "Hunter's Mark",
                     "level": 1,
                     "school": "Divination",
@@ -126,6 +137,17 @@ const character = {
                     "duration": "Concentration, up to 1 hour",
                     "classes": "Ranger",
                     "description": "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.\r\nWhen you cast this spell using a spell slot of 3rd or 4th level, you can maintain your Concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentr⁠ation on the spell for up to 24 hours."
+                },
+                {
+                    "name": "Lightning Arrow",
+                    "level": 3,
+                    "school": "Transmutation",
+                    "casting_time": "1 bonus action",
+                    "range": "self",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Ranger",
+                    "description": "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage.\r\nWhether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.\r\nThe piece of ammunition or weapon then returns to its normal form.\r\nWHen you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd."
                 },
                 {
                     "name": "Misty Step",
