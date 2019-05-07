@@ -205,7 +205,9 @@ Utils.generateSpellTypeMarkup = function(type, spellMarkup) {
 Utils.generateSpellMarkup = function(spell, index) {
     let markup = `
         <li>
-            <a href="" data-toggler="toggle-spell-${index}">${spell.name}</a> (lvl ${spell.level})
+            <a href="" data-toggler="toggle-spell-${index}"> ${spell.name}</a>
+            <span class="label-alt">${spell.level}</span>
+            ${spell.duration.toLowerCase().indexOf('concentration') > -1 ? '<span class="label-alt">C</span>' : ''}
 
             <article class="hidden toggle-content spell-description" id="toggle-spell-${index}">
                 <em class="em">${spell.school} / ${spell.level}</em>

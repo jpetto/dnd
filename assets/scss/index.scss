@@ -11,6 +11,11 @@ $colorButton: #9A93E2;
     text-transform: uppercase;
 }
 
+@mixin labelTextAlt() {
+    @include labelText();
+    background: rgba(242,169,215,0.9);
+}
+
 @mixin circleTextBase() {
     border-radius: 50%;
     border: 1px dotted rgba(0, 0, 0, 0.4);
@@ -70,6 +75,10 @@ input, textarea {
     .text-wrapper {
         padding: 1px 0;
     }
+}
+
+.label-alt {
+    @include labelTextAlt();
 }
 
 .h2 {
