@@ -95,15 +95,15 @@ const character = {
                     "description": "When hit with acid, cold, fire, lightning, or thunder damage, you can use your reaction to have resistance to it until the start of your next turn, including against the triggering attack. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 of the damage type."
                 },
                 {
-                    "name": "Ensnaring Strike",
-                    "level": 1,
-                    "school": "Conjuration",
-                    "casting_time": "1 bonus action",
-                    "range": "self",
-                    "components": "V",
-                    "duration": "Concentration, up to 1 minute",
-                    "classes": "Ranger",
-                    "description": "The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.\r\nWhile restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.\r\nIf you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+                    "name": "Conjure Animals",
+                    "level": 3,
+                    "school": "Abjuration",
+                    "casting_time": "1 reaction",
+                    "range": "60 feet",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 hour",
+                    "classes": "Druid, Ranger",
+                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: One beast of challenge rating 2 or lower Two beasts of challenge rating 1 or lower Four beasts of challenge rating 1/2 or lower Eight beasts of challenge rating 1/4 or lower Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don’t issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures’ statistics.\r\nWhen you cast this spell using certain higher-level Spell Slots, you choose one of the summoning options above, and more creatures appear - twice as many with a 5th-level slot, three times as many with a 7th-level slot, and four times as many with a 9th-level slot."
                 },
                 {
                     "name": "Etherealness",
