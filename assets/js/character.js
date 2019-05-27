@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 9
+            "level": 10
         },
         {
             "type": "Cleric",
@@ -11,11 +11,11 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 98225,
-    "experience_next": 100000,
-    "hp": 57,
+    "experience": 103610,
+    "experience_next": 120000,
+    "hp": 62,
     "spell_modifier": "wis",
-    "spell_slots": [4, 3, 3],
+    "spell_slots": [4, 3, 3, 1],
     "ac": 18,
     "initiative": 4,
     "proficiency": 4,
@@ -325,6 +325,17 @@ const character = {
                     "description": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spells ends.\r\n** SNAKES ONLY **"
                 },
                 {
+                    "name": "Bless (custom)",
+                    "level": 1,
+                    "school": "Enchantment",
+                    "casting_time": "1 action",
+                    "range": "self",
+                    "components": "Puissant Drumstick",
+                    "duration": "1 hour",
+                    "classes": "Cleric, Paladin",
+                    "description": "Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw."
+                },
+                {
                     "name": "Blink",
                     "level": 3,
                     "school": "Transmutation",
@@ -334,6 +345,17 @@ const character = {
                     "duration": "1 minute",
                     "classes": "Sorceror, Wizard",
                     "description": "Roll a d20 at the end of each of your turns for the duration of the spell. On a roll of 11 or higher, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell fails and the casting is wasted if you were already on that plane). At the start of your next turn, and when the spell ends if you are on the Ethereal Plane, you return to an unoccupied space of your choice that you can see within 10 feet of the space you vanished from. If no unoccupied space is available within that range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near). You can dismiss this spell as an action.\r\nWhile on the Ethereal Plane, you can see and hear the plane you originated from, which is cast in shades of gray, and you can’t see anything there more than 60 feet away. You can only affect and be affected by other creatures on the Ethereal Plane. Creatures that aren’t there can’t perceive you or interact with you, unless they have the ability to do so.\r\nEach time the wearer enters the Ethereal, they must roll a 1d20; on a 1-2, the armor attacts the attention of a creature on the Ethereal Plane."
+                },
+                {
+                    "name": "Blur",
+                    "level": 2,
+                    "school": "Illusion",
+                    "casting_time": "1 action",
+                    "range": "self",
+                    "components": "V",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Sorceror, Wizard",
+                    "description": "Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any creature has disadvantage on attack rolls against you. An attacker is immune to this effect if it doesn't rely on sight, as with blindsight, or can see through illusions, as with truesight."
                 },
                 {
                     "name": "Flame Shield",
@@ -400,10 +422,9 @@ const character = {
         "30 drow arrows",
         "drow wine",
         "Cas' fancy cloak (worth 100GP)",
-        "King Bear's letter to the ancient elves (currently on the ghost elf ship)",
+        "King Bear's diplomatic letter to the ancient elves",
         "fancy fashion butt plate",
         "piece of alien crab shell",
-        "dried meat",
         "petrified songbird",
         "colorful giant parrot feather",
         "woven mats (from drow guardian spider's chest)",
@@ -414,7 +435,8 @@ const character = {
         "white cleaning powder from elvish library",
         "stationery from elvish library",
         "wood from toby's ship (to make an arrow?)",
-        "insect filled fruit from toby's ship's garden"
+        "insect filled fruit from toby's ship's garden",
+        "Throne Lord's tobacco"
     ]
 };
 
