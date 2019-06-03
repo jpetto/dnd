@@ -11,7 +11,7 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 112105,
+    "experience": 112305,
     "experience_next": 120000,
     "hp": 62,
     "spell_modifier": "wis",
