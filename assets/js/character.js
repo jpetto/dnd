@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 10
+            "level": 11
         },
         {
             "type": "Cleric",
@@ -11,9 +11,9 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 112305,
-    "experience_next": 120000,
-    "hp": 62,
+    "experience": 129975,
+    "experience_next": 140000,
+    "hp": 67,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3, 1],
     "ac": 18,
@@ -95,59 +95,26 @@ const character = {
                     "description": "When hit with acid, cold, fire, lightning, or thunder damage, you can use your reaction to have resistance to it until the start of your next turn, including against the triggering attack. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 of the damage type."
                 },
                 {
-                    "name": "Conjure Animals",
-                    "level": 3,
-                    "school": "Abjuration",
-                    "casting_time": "1 reaction",
-                    "range": "60 feet",
-                    "components": "V S",
-                    "duration": "Concentration, up to 1 hour",
-                    "classes": "Druid, Ranger",
-                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: One beast of challenge rating 2 or lower Two beasts of challenge rating 1 or lower Four beasts of challenge rating 1/2 or lower Eight beasts of challenge rating 1/4 or lower Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don’t issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures’ statistics.\r\nWhen you cast this spell using certain higher-level Spell Slots, you choose one of the summoning options above, and more creatures appear - twice as many with a 5th-level slot, three times as many with a 7th-level slot, and four times as many with a 9th-level slot."
-                },
-                {
-                    "name": "Etherealness",
-                    "level": 7,
-                    "school": "Transmutation",
+                    "name": "Ensnaring Strike",
+                    "level": 1,
+                    "school": "Conjuration",
                     "casting_time": "1 bonus action",
                     "range": "self",
-                    "components": "V S",
-                    "duration": "Up to 8 hours (Current turn)",
-                    "classes": "Bard, Cleric, Sorcerer, Warlock, Wizard",
-                    "description": "You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can’t see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren’t on the Ethereal Plane can’t perceive you and can’t interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren’t on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn’t border it, such as one of the Outer Planes.\r\nAs a bonus action, you can cast this spell without expending a spell slot, but the spell ends at the end of your current turn. Once you use this feature, you can’t use it again until you finish a short or long rest."
-                },
-                {
-                    "name": "Haste",
-                    "level": 3,
-                    "school": "Transmutation",
-                    "casting_time": "1 action",
-                    "range": "30 feet",
-                    "components": "V S M",
-                    "duration": "Concentration, up to 1 minute",
-                    "classes": "Sorceror, Wizard",
-                    "description": "Choose a willing creature that you can see within range. Until the spell ends, the target’s speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.\r\nWhen the spell ends, the target can’t move or take actions until after its next turn, as a wave of lethargy sweeps over it."
-                },
-                {
-                    "name": "Hunter's Mark",
-                    "level": 1,
-                    "school": "Divination",
-                    "casting_time": "1 bonus action",
-                    "range": "90 feet",
                     "components": "V",
                     "duration": "Concentration, up to 1 hour",
                     "classes": "Ranger",
-                    "description": "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.\r\nWhen you cast this spell using a spell slot of 3rd or 4th level, you can maintain your Concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentr⁠ation on the spell for up to 24 hours."
+                    "description": "The next time you hit a creature with a weapon attack before the spell ends, a writing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or lerger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.\r\nWhile restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.\r\nIf you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
                 },
                 {
-                    "name": "Lightning Arrow",
-                    "level": 3,
-                    "school": "Transmutation",
-                    "casting_time": "1 bonus action",
-                    "range": "self",
-                    "components": "V S",
-                    "duration": "Concentration, up to 1 minute",
-                    "classes": "Ranger",
-                    "description": "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage.\r\nWhether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.\r\nThe piece of ammunition or weapon then returns to its normal form.\r\nWhen you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd."
+                    "name": "Protection from Evil and Good",
+                    "level": 1,
+                    "school": "Abjuration",
+                    "casting_time": "1 action",
+                    "range": "touch",
+                    "components": "V S M",
+                    "duration": "Concentration, up to 10 minutes",
+                    "classes": "Cleric, Paladin, Warlock, Wizard",
+                    "description": "Until the spell ends, one willing creature you touch is protected against certain types of creatures - Aberrations, Celestials, Elementals, fey, Fiends, and Undead.\r\nThe protection grants several benefits. Creatures of those types have disadvantage on Attack rolls against the target. The target also can't be Charmed, Frightened, or possessed by them. If the target is already Charmed, Frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect."
                 },
                 {
                     "name": "Misty Step",
@@ -171,17 +138,7 @@ const character = {
                     "classes": "Druid, Ranger",
                     "description": "A veil of shadows and silence radiates from you, masking you and your companions from detection. For the duration, each creature you choose within 30 feet of you (including you) has a +10 bonus to Dexterity (Stealth) checks and can’t be tracked except by magical means. A creature that receives this bonus leaves behind no tracks or other traces of its passage."
                 },
-                {
-                    "name": "Protection from Evil and Good",
-                    "level": 1,
-                    "school": "Abjuration",
-                    "casting_time": "1 action",
-                    "range": "touch",
-                    "components": "V S M",
-                    "duration": "Concentration, up to 10 minutes",
-                    "classes": "Cleric, Paladin, Warlock, Wizard",
-                    "description": "Until the spell ends, one willing creature you touch is protected against certain types of creatures - Aberrations, Celestials, Elementals, fey, Fiends, and Undead.\r\nThe protection grants several benefits. Creatures of those types have disadvantage on Attack rolls against the target. The target also can't be Charmed, Frightened, or possessed by them. If the target is already Charmed, Frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect."
-                },
+                
                 {
                     "name": "Spike Growth",
                     "level": 2,
@@ -192,12 +149,100 @@ const character = {
                     "duration": "Concentration, up to 10 minutes",
                     "classes": "Druid, Ranger",
                     "description": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels.\r\nThe transformation of the ground is camouflaged to look natural. Any creature that can’t see the area at the time the spell is cast must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it."
+                },
+                {
+                    "name": "Conjure Animals",
+                    "level": 3,
+                    "school": "Abjuration",
+                    "casting_time": "1 reaction",
+                    "range": "60 feet",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 hour",
+                    "classes": "Druid, Ranger",
+                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: One beast of challenge rating 2 or lower Two beasts of challenge rating 1 or lower Four beasts of challenge rating 1/2 or lower Eight beasts of challenge rating 1/4 or lower Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don’t issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The GM has the creatures’ statistics.\r\nWhen you cast this spell using certain higher-level Spell Slots, you choose one of the summoning options above, and more creatures appear - twice as many with a 5th-level slot, three times as many with a 7th-level slot, and four times as many with a 9th-level slot."
+                },
+                {
+                    "name": "Haste",
+                    "level": 3,
+                    "school": "Transmutation",
+                    "casting_time": "1 action",
+                    "range": "30 feet",
+                    "components": "V S M",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Sorceror, Wizard",
+                    "description": "Choose a willing creature that you can see within range. Until the spell ends, the target’s speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.\r\nWhen the spell ends, the target can’t move or take actions until after its next turn, as a wave of lethargy sweeps over it."
+                },
+                {
+                    "name": "Lightning Arrow",
+                    "level": 3,
+                    "school": "Transmutation",
+                    "casting_time": "1 bonus action",
+                    "range": "self",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Ranger",
+                    "description": "The next time you make a ranged weapon attack during the spell's duration, the weapon's ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning. Make the attack roll as normal. The target takes 4d8 lightning damage on a hit, or half as much damage on a miss, instead of the weapon's normal damage.\r\nWhether you hit or miss, each creature within 10 feet of the target must make a Dexterity saving throw. Each of these creatures takes 2d8 lightning damage on a failed save, or half as much damage on a successful one.\r\nThe piece of ammunition or weapon then returns to its normal form.\r\nWhen you cast this spell using a spell slot of 4th level or higher, the damage for both effects of the spell increases by 1d8 for each slot level above 3rd."
+                },
+                {
+                    "name": "Wind Wall",
+                    "level": 3,
+                    "school": "Evocation",
+                    "casting_time": "1 action",
+                    "range": "120 feet",
+                    "components": "V S M",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Druid, Ranger",
+                    "description": "A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.\r\nWhen the wall appears, each creature within its area must make a Strength saving throw. A creature takes 3d8 bludgeoning damage on a failed save, or half as much damage on a successful one.\r\nThe strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can’t pass through the wall. Loose, lightweight materials brought into the wall fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and automatically miss. (Boulders hurled by giants or siege engines, and similar projectiles, are unaffected.) Creatures in gaseous form can’t pass through it."
+                },
+                {
+                    "name": "Etherealness",
+                    "level": 7,
+                    "school": "Transmutation",
+                    "casting_time": "1 bonus action",
+                    "range": "self",
+                    "components": "V S",
+                    "duration": "Up to 8 hours (Current turn)",
+                    "classes": "Bard, Cleric, Sorcerer, Warlock, Wizard",
+                    "description": "You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can’t see anything more than 60 feet away. While on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren’t on the Ethereal Plane can’t perceive you and can’t interact with you, unless a special ability or magic has given them the ability to do so. You ignore all objects and effects that aren’t on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from. When the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved. This spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn’t border it, such as one of the Outer Planes.\r\nAs a bonus action, you can cast this spell without expending a spell slot, but the spell ends at the end of your current turn. Once you use this feature, you can’t use it again until you finish a short or long rest."
                 }
             ]
         },
         {
             "type": "Cleric",
             "list": [
+                {
+                    "name": "Guidance",
+                    "level": 0,
+                    "school": "Divination",
+                    "casting_time": "1 action",
+                    "range": "touch",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 minute",
+                    "classes": "Cleric, Druid",
+                    "description": "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends."
+                },
+                {
+                    "name": "Spare the Dying",
+                    "level": 0,
+                    "school": "Necromancy",
+                    "casting_time": "1 action",
+                    "range": "touch",
+                    "components": "V S",
+                    "duration": "Instantaneous",
+                    "classes": "Cleric",
+                    "description": "You touch a living creature that has 0 hit points. The creature becomes stable. This spell has no effect on undead or constructs.\r\n*Stand the Fallen*\r\nRange increases to 30 feet and target gains 1 hit point. Can be used Wisdom modifier number of times, recharges after short or long rest."
+                },
+                {
+                    "name": "Thaumaturgy",
+                    "level": 0,
+                    "school": "Transmutation",
+                    "casting_time": "1 action",
+                    "range": "30 feet",
+                    "components": "V",
+                    "duration": "Up to 1 minute",
+                    "classes": "Cleric",
+                    "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
+                },
                 {
                     "name": "Create or Destroy Water",
                     "level": 1,
@@ -230,17 +275,6 @@ const character = {
                     "duration": "1 hour",
                     "classes": "Sorceror, Wizard",
                     "description": "Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional Temporary Hit Points for each slot level above 1st."
-                },
-                {
-                    "name": "Guidance",
-                    "level": 0,
-                    "school": "Divination",
-                    "casting_time": "1 action",
-                    "range": "touch",
-                    "components": "V S",
-                    "duration": "Concentration, up to 1 minute",
-                    "classes": "Cleric, Druid",
-                    "description": "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends."
                 },
                 {
                     "name": "Guiding Bolt",
@@ -285,28 +319,6 @@ const character = {
                     "duration": "Concentration, up to 10 minutes",
                     "classes": "Cleric, Paladin",
                     "description": "A shimmering field appears and surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
-                },
-                {
-                    "name": "Spare the Dying",
-                    "level": 0,
-                    "school": "Necromancy",
-                    "casting_time": "1 action",
-                    "range": "touch",
-                    "components": "V S",
-                    "duration": "Instantaneous",
-                    "classes": "Cleric",
-                    "description": "You touch a living creature that has 0 hit points. The creature becomes stable. This spell has no effect on undead or constructs.\r\n*Stand the Fallen*\r\nRange increases to 30 feet and target gains 1 hit point. Can be used Wisdom modifier number of times, recharges after short or long rest."
-                },
-                {
-                    "name": "Thaumaturgy",
-                    "level": 0,
-                    "school": "Transmutation",
-                    "casting_time": "1 action",
-                    "range": "30 feet",
-                    "components": "V",
-                    "duration": "Up to 1 minute",
-                    "classes": "Cleric",
-                    "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
                 }
             ]
         },
