@@ -48,30 +48,58 @@ import character from './character.js';
 
     const RANDOMITEMS = document.getElementById('random-items');
 
-    // spell details, basically
-    let Togglers;
-    let TogglerContents;
-
     /**
      * Generic, but basically just means spell description togglers.
      */
     function initTogglers() {
-        Togglers = document.querySelectorAll('a[data-toggler]');
-        TogglerContents = document.querySelectorAll('.toggle-content');
+        const TOGGLERS = document.querySelectorAll('a[data-toggler]');
+        const TOGGLER_CONTENTS = document.querySelectorAll('.toggle-content');
 
-        Togglers.forEach(element => {
+        TOGGLERS.forEach(element => {
             element.setAttribute('role', 'button');
             element.addEventListener('click', e => {
                 e.preventDefault();
 
-                const TARGET = document.getElementById(element.dataset.toggler);
-                TARGET.classList.toggle('hidden');
+                let target = document.getElementById(element.dataset.toggler);
+                target.classList.toggle('hidden');
+
+                // get contents of target to place in common display div
+                let spell_details = target.innerHTML;
+                let spell_type_wrapper = element.closest('.spell-type-wrapper');
+                let common_target = spell_type_wrapper.getElementsByClassName('spell-description-wide')[0];
+
+                // remove highlight from other spells in this group
+                spell_type_wrapper.querySelectorAll('a').forEach(anchor => {
+                    anchor.classList.remove('selected');
+                });
+
+                if (common_target) {
+                    if (target.classList.contains('hidden')) {
+                        common_target.innerHTML = '';
+                    } else {
+                        common_target.innerHTML = '<article>' + spell_details + '</article>';
+
+                        // highlight the selected spell
+                        element.classList.add('selected');
+                    }
+                }
             });
         });
 
-        TogglerContents.forEach(element => {
+        TOGGLER_CONTENTS.forEach(element => {
             element.addEventListener('click', () => {
                 element.classList.add('hidden');
+
+                // de-select the spell
+                let anchor = element.closest('li').getElementsByTagName('a')[0];
+                anchor.classList.remove('selected');
+
+                // remove details from common display div
+                let common_target = element.closest('.spell-type-wrapper').getElementsByClassName('spell-description-wide')[0];
+
+                if (common_target) {
+                    common_target.innerHTML = '';
+                }
             })
         });
     }

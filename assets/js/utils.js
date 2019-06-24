@@ -170,7 +170,7 @@ Utils.generateAbilityScoresMarkup = function(ability_scores, character_abilities
 Utils.generateSpellSlotMarkup = function(level, slots) {
     let markup = `
             <section class="spell-slots">
-                <span class="label">Level ${level}</span>
+                <span class="label">Lvl ${level}</span>
 
                 <ol class="spell-slot-list">
                     ${slots.map((slot, index) => `
@@ -196,6 +196,7 @@ Utils.generateSpellTypeMarkup = function(type, spellMarkup) {
             <section class="spell-type-wrapper" id="spell-type-${type}">
                 <span class="label">${type}</span>
                 <ul class="spell-list">${spellMarkup}</ul>
+                <div class="spell-description-wide" id="spell-description-wide-${type}"></div>
             </section>
         `;
 
@@ -205,7 +206,7 @@ Utils.generateSpellTypeMarkup = function(type, spellMarkup) {
 Utils.generateSpellMarkup = function(spell, index) {
     let markup = `
         <li>
-            <a href="" data-toggler="toggle-spell-${index}"> ${spell.name}</a>
+            <a href="" data-toggler="toggle-spell-${index}">${spell.name}</a>
             <span class="label-alt">${spell.level}</span>
             ${spell.duration.toLowerCase().indexOf('concentration') > -1 ? '<span class="label-alt">C</span>' : ''}
 
