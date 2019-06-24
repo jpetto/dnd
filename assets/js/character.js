@@ -244,6 +244,17 @@ const character = {
                     "description": "You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:\r\n- Your voice booms up to three times as loud as normal for 1 minute.\r\n- You cause flames to flicker, brighten, dim, or change color for 1 minute.\r\n- You cause harmless tremors in the ground for 1 minute.\r\n- You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\r\n- You instantaneously cause an unlocked door or window to fly open or slam shut.\r\n- You alter the appearance of your eyes for 1 minute.\r\nIf you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."
                 },
                 {
+                    "name": "Command",
+                    "level": 1,
+                    "school": "Enchantment",
+                    "casting_time": "1 action",
+                    "range": "60 feet",
+                    "components": "V",
+                    "duration": "1 round",
+                    "classes": "Cleric, Paladin, Warlock",
+                    "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn’t understand your language, or if your command is directly harmful to it.\r\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the GM determines how the target behaves. If the target can’t follow your command, the spell ends.\r\nApproach. The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\r\nDrop. The target drops whatever it is holding and then ends its turn.\r\nFlee. The target spends its turn moving away from you by the fastest available means.\r\nGrovel. The target falls prone and then ends its turn.\r\nHalt. The target doesn’t move and takes no actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
+                },
+                {
                     "name": "Create or Destroy Water",
                     "level": 1,
                     "school": "Transmutation",
@@ -297,17 +308,6 @@ const character = {
                     "duration": "Concentration, up to 8 hours",
                     "classes": "Bard, Cleric, Druid",
                     "description": "You create a Tiny incorporeal hand of shimmering light in an unoccupied space you can see within range. The hand exists for the duration, but it disappears if you teleport or you travel to a different plane of existence.\r\nWhen the hand appears, you name one major landmark, such as a city, mountain, castle, or battlefield on the same plane of existence as you. Someone in history must have visited the site and mapped it. If the landmark appears on no map in existence, the spell fails. Otherwise, whenever you move toward the hand, it moves away from you at the same speed you moved, and it moves in the direction of the landmark, always remaining 5 feet away from you.\r\nIf you don’t move toward the hand, it remains in place until you do and beckons for you to follow once every 1d4 minutes."
-                },
-                {
-                    "name": "Healing Word",
-                    "level": 1,
-                    "school": "Evocation",
-                    "casting_time": "1 bonus action",
-                    "range": "60 feet",
-                    "components": "V",
-                    "duration": "Instantaneous",
-                    "classes": "Bard, Cleric, Druid",
-                    "description": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\r\nWhen you cast this spell using a spell slot of 2nd level or higher, the Healing increases by 1d4 for each slot level above 1st."
                 },
                 {
                     "name": "Shield of Faith",
