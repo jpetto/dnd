@@ -11,14 +11,14 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 131175,
+    "experience": 138310,
     "experience_next": 140000,
     "hp": 67,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3, 1],
     "ac": 18,
     "initiative": 4,
-    "proficiency": 4,
+    "proficiency": 5,
     "abilities": [
         {
             "abbr": "str",
