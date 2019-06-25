@@ -62,19 +62,19 @@ const character = {
     "attacks": [
         {
             "name": "Deadeye Arcus",
-            "bonus": 11,
+            "bonus": 12,
             "damage": "1d8+5",
             "type": "piercing"
         },
         {
             "name": "Old Jack's Scimitar",
-            "bonus": 9,
+            "bonus": 10,
             "damage": "1d6+5",
             "type": "slashing"
         },
         {
             "name": "Short sword",
-            "bonus": 8,
+            "bonus": 9,
             "damage": "1d6+4",
             "type": "slashing"
         }
