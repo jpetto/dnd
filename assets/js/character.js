@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 11
+            "level": 12
         },
         {
             "type": "Cleric",
@@ -11,13 +11,13 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 138310,
-    "experience_next": 140000,
-    "hp": 67,
+    "experience": 140000,
+    "experience_next": 165000,
+    "hp": 72,
     "spell_modifier": "wis",
-    "spell_slots": [4, 3, 3, 1],
-    "ac": 18,
-    "initiative": 4,
+    "spell_slots": [4, 3, 3, 2],
+    "ac": 19,
+    "initiative": 5,
     "proficiency": 5,
     "abilities": [
         {
@@ -27,7 +27,7 @@ const character = {
         },
         {
             "abbr": "dex",
-            "value": 18,
+            "value": 20,
             "proficient": true
         },
         {
@@ -62,20 +62,20 @@ const character = {
     "attacks": [
         {
             "name": "Deadeye Arcus",
-            "bonus": 12,
-            "damage": "1d8+5",
+            "bonus": 13,
+            "damage": "1d8+6",
             "type": "piercing"
         },
         {
             "name": "Old Jack's Scimitar",
-            "bonus": 10,
-            "damage": "1d6+5",
+            "bonus": 11,
+            "damage": "1d6+6",
             "type": "slashing"
         },
         {
             "name": "Short sword",
-            "bonus": 9,
-            "damage": "1d6+4",
+            "bonus": 10,
+            "damage": "1d6+5",
             "type": "slashing"
         }
     ],
