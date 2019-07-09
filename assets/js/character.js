@@ -11,7 +11,7 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 140000,
+    "experience": 143950,
     "experience_next": 165000,
     "hp": 72,
     "spell_modifier": "wis",
@@ -448,7 +448,9 @@ const character = {
         "stationery from elvish library",
         "wood from toby's ship (to make an arrow?)",
         "insect filled fruit from toby's ship's garden (with Alain in the settlement being studied)",
-        "Throne Lord's tobacco"
+        "Throne Lord's tobacco",
+        "Grandma's skull dust",
+        "Doug's hippo crown"
     ]
 };
 
