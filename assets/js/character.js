@@ -451,7 +451,8 @@ const character = {
         "Throne Lord's tobacco",
         "Grandma's skull dust (8 doses)",
         "Beetle goo",
-        "Brandak mushrooms (hot!)"
+        "Brandac mushroom powder (how much?)",
+        "dried licorice fruit from mindflayers' ship"
     ]
 };
 
