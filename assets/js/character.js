@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 12
+            "level": 13
         },
         {
             "type": "Cleric",
@@ -11,8 +11,8 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 155725,
-    "experience_next": 165000,
+    "experience": 167745,
+    "experience_next": 195000,
     "hp": 72,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3, 2],
@@ -103,7 +103,7 @@ const character = {
                     "components": "V",
                     "duration": "Concentration, up to 1 hour",
                     "classes": "Ranger",
-                    "description": "The next time you hit a creature with a weapon attack before the spell ends, a writing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or lerger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.\r\nWhile restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.\r\nIf you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+                    "description": "The next time you hit a creature with a weapon attack before the spell ends, a writing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.\r\nWhile restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.\r\nIf you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
                 },
                 {
                     "name": "Protection from Evil and Good",
@@ -452,7 +452,9 @@ const character = {
         "Grandma's skull dust (8 doses)",
         "Beetle goo",
         "Brandac mushroom powder (how much?)",
-        "dried licorice fruit from mindflayers' ship"
+        "dried licorice fruit from mindflayers' ship",
+        "compass from sunken ship",
+        "metal latitude chart from sunken ship"
     ]
 };
 
