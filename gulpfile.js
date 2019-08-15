@@ -1,16 +1,36 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+const { dest, series, src, watch } = require('gulp');
+const sass = require('gulp-sass');
+const del = require('del');
 
-gulp.task('scss', function() {
-    gulp.src('assets/scss/**/*.scss')
+// clear _site directory
+function clearBuild() {
+    return del('./_site/');
+}
+
+// copy html files to _site directory
+function copyHTML() {
+    return src('*.html').pipe(dest('./_site/'));
+}
+
+// copy assets to _site directory (skipping scss)
+function copyAssets() {
+    return src(['./assets/**/*', '!./assets/scss/**'])
+        .pipe(dest('./_site/assets/'));
+}
+
+// compile scss
+function scss() {
+    return src('assets/scss/**/*.scss')
         .pipe(sass({
             outputStyle: 'compressed'
         }))
-        .pipe(gulp.dest('assets/css'));
-});
+        .pipe(dest('assets/css'));
+}
 
-gulp.task('watch', ['scss'], function() {
-    gulp.watch('assets/scss/**/*.scss', ['scss']);
-});
+// watch scss changes for local dev
+function watchDev() {
+    watch('assets/scss/**/*.scss', scss);
+}
 
-gulp.task('default', ['watch']);
+exports.build = series(clearBuild, scss, copyHTML, copyAssets);
+exports.default = series(scss, watchDev);
