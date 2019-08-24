@@ -1,3 +1,0 @@
-1. Set up webhook for deployments: https://developer.github.com/webhooks/configuring/
-
-testing webhook...again...again...again...again...again...again...
