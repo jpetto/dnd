@@ -114,6 +114,9 @@ import character from './character.js';
         let i;
         let j;
 
+        // make sure table is cleared first (for loading previous session)
+        ATTACKSTABLEBODY.innerHTML = '';
+
         character.attacks.forEach(attack => {
             ATTACKSTABLEBODY.innerHTML += Utils.generateAttackMarkup(attack.name, attack.bonus, attack.damage, attack.type);
         });
@@ -130,6 +133,9 @@ import character from './character.js';
         // spells
         let spellMarkup = '';
         let spellTypeMarkup;
+
+        // make sure spells are cleared (for loading previous session)
+        SPELLSWRAPPER.innerHTML = '';
 
         for (i = 0; i < character.spells.length; i++) {
             for (j = 0; j < character.spells[i].list.length; j++) {
