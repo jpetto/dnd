@@ -15,7 +15,7 @@ const character = {
     "experience_next": 225000,
     "hp": 77,
     "spell_modifier": "wis",
-    "spell_slots": [4, 3, 3, 2],
+    "spell_slots": [4, 3, 3, 3, 1],
     "ac": 19,
     "initiative": 5,
     "proficiency": 5,
