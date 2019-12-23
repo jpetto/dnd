@@ -3,7 +3,7 @@ const character = {
     "classes": [
         {
             "type": "Ranger",
-            "level": 14
+            "level": 15
         },
         {
             "type": "Cleric",
@@ -11,14 +11,14 @@ const character = {
         }
     ],
     "race": "Wood Elf",
-    "experience": 207070,
-    "experience_next": 225000,
+    "experience": 225000,
+    "experience_next": 265000,
     "hp": 77,
     "spell_modifier": "wis",
     "spell_slots": [4, 3, 3, 3, 1],
     "ac": 19,
     "initiative": 5,
-    "proficiency": 5,
+    "proficiency": 6,
     "abilities": [
         {
             "abbr": "str",
@@ -62,19 +62,19 @@ const character = {
     "attacks": [
         {
             "name": "Deadeye Arcus",
-            "bonus": 13,
+            "bonus": 14,
             "damage": "1d8+6",
             "type": "piercing"
         },
         {
             "name": "Old Jack's Scimitar",
-            "bonus": 11,
+            "bonus": 12,
             "damage": "1d6+6",
             "type": "slashing"
         },
         {
             "name": "Short sword",
-            "bonus": 10,
+            "bonus": 11,
             "damage": "1d6+5",
             "type": "slashing"
         }
@@ -95,15 +95,26 @@ const character = {
                     "description": "When hit with acid, cold, fire, lightning, or thunder damage, you can use your reaction to have resistance to it until the start of your next turn, including against the triggering attack. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 of the damage type."
                 },
                 {
-                    "name": "Ensnaring Strike",
+                    "name": "Fog Cloud",
                     "level": 1,
                     "school": "Conjuration",
+                    "casting_time": "1 action",
+                    "range": "120 feet",
+                    "components": "V S",
+                    "duration": "Concentration, up to 1 hour",
+                    "classes": "Druid, Ranger, Sorceror, Wizard",
+                    "description": " You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured, It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.\r\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the radius of the fog increases by 20 feet for each slot level above 1st."
+                },
+                {
+                    "name": "Hunter's Mark",
+                    "level": 1,
+                    "school": "Divination",
                     "casting_time": "1 bonus action",
-                    "range": "self",
+                    "range": "90 feet",
                     "components": "V",
                     "duration": "Concentration, up to 1 hour",
                     "classes": "Ranger",
-                    "description": "The next time you hit a creature with a weapon attack before the spell ends, a writing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away.\r\nWhile restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns. A creature restrained by the vines or one that can touch the creature can use its action to make a Strength check against your spell save DC. On a success, the target is freed.\r\nIf you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+                    "description": " You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.\r\n\r\nAt Higher Levels. When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours."
                 },
                 {
                     "name": "Protection from Evil and Good",
